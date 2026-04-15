@@ -1,0 +1,239 @@
+{
+    "resources": [
+        {
+            "id": 1,
+            "name": "Gold",
+            "name_key": "gold",
+            "description_key": "gold_description",
+            "description": "Gold is the main currency of the game."
+        },
+        {
+            "id": 2,
+            "name": "Wood",
+            "name_key": "wood",
+            "description_key": "wood_description",
+            "description": "Wood is a resource used to build structures."
+        },
+        {
+            "id": 3,
+            "name": "Stone",
+            "name_key": "stone",
+            "description_key": "stone_description",
+            "description": "Stone is a resource used to build structures."
+        },
+        {
+            "id": 4,
+            "name": "Iron",
+            "name_key": "iron",
+            "description_key": "iron_description",
+            "description": "Iron is a resource used to build structures."
+        },
+        {
+            "id": 5,
+            "name": "Crystal",
+            "name_key": "crystal",
+            "description_key": "crystal_description",
+            "description": "Crystal is a premium resource."
+        },
+        {
+            "id": 6,
+            "name": "XP",
+            "name_key": "xp",
+            "description_key": "xp_description",
+            "description": "XP is a resource used to level up the player."
+        }
+    ],
+    "levels": [
+        {
+            "xp_required": 0,
+            "rewards": []
+        },
+        {
+            "xp_required": 10,
+            "rewards": [
+                {
+                    "type": "resource",
+                    "resource_id": 1,
+                    "quantity": 1
+                },
+                {
+                    "type": "energy",
+                    "quantity": "maximum"
+                }
+            ]
+        }
+    ], // nível máximo é 15
+    "units": [
+        {
+            "id": 1,
+            "name": "Militiaman",
+            "name_key": "unit_militiaman_name",
+            "description_key": "unit_militiaman_description",
+            "description": "Just a peasant with a pike",
+            "price": {
+                "type": "resource",
+                "resource_id": 1,
+                "quantity": 250
+            },
+            "training_time": 15,
+            "stats": {
+                "health": 100,
+                "attack": 25,
+                "initiative": 100,
+                "speed": 3, // distancia de quadrados que pode-se andar
+                "range": null // só arqueiros tem range
+            }
+        }
+    ],
+    "buildings": [],
+    "kingdom_lands": [ // 5x5
+        {
+            "id": 1,
+            "price": {
+                "type": "resource",
+                "resource_id": 1,
+                "quantity": 0 
+            }
+        }
+    ],
+    "kingdom_buildings": [], // construções que já vem no terreno, mas tem que ser reconstruidas
+    "campaign_nodes": [
+        {
+            "id": 1,
+            "name_key": "campaign_node_1_name",
+            "name": "Patrol",
+            "rewards": [
+                {
+                    "type": "resource",
+                    "resource_id": 1,
+                    "quantity": 1000
+                },
+                {
+                    "type": "resource",
+                    "resource_id": 5,
+                    "quantity": 1
+                },
+                {
+                    "type": "resource",
+                    "resource_id": 6,
+                    "quantity": 5
+                }
+            ],
+            "allowed_unit_quanty": 2,
+            "allowed_unit_squares": [
+                {
+                    "x": 0,
+                    "y": 0
+                },
+                {
+                    "x": 1,
+                    "y": 0
+                }
+            ]
+        }
+    ], // fases da campanha
+    "characters": [
+        {
+            "id": 1,
+            "name_key": "character_1_name",
+            "name": "Roland",
+            "description_key": "character_1_description",
+            "description": "ROLAND DESCRIPTION"
+        },
+        {
+            "id": 2,
+            "name_key": "character_2_name",
+            "name": "Necromancer",
+            "description_key": "character_2_description",
+            "description": "NECROMANCER DESCRIPTION"
+        }
+    ],
+    "campaign_quotes": [
+        {
+            "id": 1,
+            "character_id": 1,
+            "quote_key": "campaign_quote_1_quote",
+            "quote": "It's quiet as the grave - no birdsong, no voices... Something is wrong here... Keep alert!"
+        },
+        {
+            "id": 2,
+            "character_id": 1,
+            "quote_key": "campaign_quote_2_quote",
+            "quote": "Behold, a solider of the anchient Legion! Something evil has invoked the fallen warrior with dark magic. We have to grant the poor wretch peace."
+        },
+        {
+            "id": 3,
+            "character_id": 1,
+            "quote_key": "campaign_quote_3_quote",
+            "quote": "Necromancer! I feel the evil oozing from him. We'll put an end his unholy crimes!"
+        },
+        {
+            "id": 4,
+            "character_id": 2,
+            "quote_key": "campaign_quote_4_quote",
+            "quote": "Ah, sssir Roland, a noble catch! Mistress ssshall be glad... Come meet hilt of  my ssscythe..."
+        },
+        {
+            "id": 5,
+            "character_id": 1,
+            "quote_key": "campaign_quote_5_quote",
+            "quote": "You'll meet mine first, Necromancer!"
+        },
+        {
+            "id": 6,
+            "character_id": 2,
+            "quote_key": "campaign_quote_6_quote",
+            "quote": "You threaten me, a ssservant of the great Morgana? Phatetic mortal! WARRIORSSS OF THE LEGION! ARISE!"
+        },
+        {
+            "id": 7,
+            "character_id": 2,
+            "quote_key": "campaign_quote_7_quote",
+            "quote": "Farewell, fool. Death has come to calim you!"
+        },
+        {
+            "id": 8,
+            "character_id": 1,
+            "quote_key": "campaign_quote_8_quote",
+            "quote": "The Necromancer fled! I doubt for long, however..."
+        }
+    ],
+    "quests": [
+        {
+            "id": 1,
+            "required_level_id": 1,
+            "name_key": "quest_1",
+            "name": "Patrol",
+            "description_key": "quest_1_description",
+            "description": "Milord, messengers bring disturbing news: there is something amiss in the surrounding lands. I am willing to take to the road and find out what is afoot.",
+            "rewards": [
+                {
+                    "type": "resource",
+                    "resource_id": 1,
+                    "quantity": 750
+                },
+                {
+                    "type": "resource",
+                    "resource_id": 6,
+                    "quantity": 8
+                }
+            ]
+        }
+    ],
+    "quest_tasks": [
+        {
+            "id": 1,
+            "name_key": "quest_task_1",
+            "name": "Start the battle \"Patrol\"",
+            "description_key": "quest_task_1_description",
+            "description": "Select battle \"Patrol\" on the map of Greenmeere",
+        },
+        {
+            "id": 2,
+            "name_key": "quest_task_2",
+            "name": "Finish the battle \"Patrol\"",
+            "description_key": "quest_task_2_description",
+            "description": "Select battle \"Patrol\" on the map of Greenmeere",
+        }
+    ]
+}
