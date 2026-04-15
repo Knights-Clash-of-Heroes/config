@@ -71,6 +71,11 @@
             "description": "Gold Dragoon is a unit that can be trained in the Barracks."
         }
     ], // recursos do jogo, para comprar e construir coisas
+    "energy": {
+        "maximum": 6,
+        "regeneration_time": 3600,
+        "regeneration_quantity": 1
+    },
     "shop_categories": [
         {
             "id": 1,
@@ -134,7 +139,8 @@
                     "quantity": 1
                 },
                 {
-                    "type": "energy",
+                    "type": "resource",
+                    "resource_id": 7,
                     "quantity": "maximum"
                 }
             ]
@@ -149,7 +155,8 @@
                     "quantity": 1
                 },
                 {
-                    "type": "energy",
+                    "type": "resource",
+                    "resource_id": 7,
                     "quantity": "maximum"
                 }
             ]
@@ -164,7 +171,8 @@
                     "quantity": 1
                 },
                 {
-                    "type": "energy",
+                    "type": "resource",
+                    "resource_id": 7,
                     "quantity": "maximum"
                 }
             ]
