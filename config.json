@@ -707,7 +707,7 @@
             "name_key": "quest_task_2",
             "name": "Finish the battle \"Patrol\"",
             "description_key": "quest_task_2_description",
-            "description": "Select battle \"Patrol\" on the map of Greenmeere",
+            "description": "Select battle \"Patrol\" on the map of Greenmeere"
         },
         {
             "id": 3,
