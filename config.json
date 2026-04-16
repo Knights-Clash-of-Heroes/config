@@ -3,71 +3,71 @@
         {
             "id": 1,
             "name": "Gold",
-            "name_key": "gold",
-            "description_key": "gold_description",
+            "name_key": "resource_1_name",
+            "description_key": "resource_1_description",
             "description": "Money: the more you have, the better!"
         },
         {
             "id": 2,
             "name": "Wood",
-            "name_key": "wood",
-            "description_key": "wood_description",
+            "name_key": "resource_2_name",
+            "description_key": "resource_2_description",
             "description": "Wood is a resource used to build structures."
         },
         {
             "id": 3,
             "name": "Stone",
-            "name_key": "stone",
-            "description_key": "stone_description",
+            "name_key": "resource_3_name",
+            "description_key": "resource_3_description",
             "description": "Stone is a resource used to build structures."
         },
         {
             "id": 4,
             "name": "Iron",
-            "name_key": "iron",
-            "description_key": "iron_description",
+            "name_key": "resource_4_name",
+            "description_key": "resource_4_description",
             "description": "Iron is a resource used to build structures."
         },
         {
             "id": 5,
             "name": "Crystal",
-            "name_key": "crystal",
-            "description_key": "crystal_description",
+            "name_key": "resource_5_name",
+            "description_key": "resource_5_description",
             "description": "Crystal is a premium resource."
         },
         {
             "id": 6,
             "name": "XP",
-            "name_key": "xp",
-            "description_key": "xp_description",
+            "name_key": "resource_6_name",
+            "description_key": "resource_6_description",
             "description": "XP is a resource used to level up the player."
         },
         {
             "id": 7,
             "name": "Energy",
-            "name_key": "energy",
-            "description_key": "energy_description",
+            "name_key": "resource_7_name",
+            "description_key": "resource_7_description",
             "description": "Energy is a resource used to play the game."
         },
         {
             "id": 8,
             "name": "Bronze Dragoon",
-            "name_key": "bronze_dragoon",
-            "description_key": "bronze_dragoon_description",
+            "name_key": "resource_8_name",
+            "description_key": "resource_8_description",
             "description": "Bronze Dragoon is a unit that can be trained in the Barracks."
         },
         {
             "id": 9,
             "name": "Silver Dragoon",
-            "name_key": "silver_dragoon",
-            "description_key": "silver_dragoon_description",
+            "name_key": "resource_9_name",
+            "description_key": "resource_9_description",
             "description": "Silver Dragoon is a unit that can be trained in the Barracks."
         },
         {
             "id": 10,
             "name": "Gold Dragoon",
-            "name_key": "gold_dragoon",
-            "description_key": "gold_dragoon_description",
+            "name_key": "resource_10_name",
+            "description_key": "resource_10_description",
             "description": "Gold Dragoon is a unit that can be trained in the Barracks."
         }
     ], // recursos do jogo, para comprar e construir coisas
@@ -232,34 +232,28 @@
         {
             "id": 4,
             "attack_type_id": 1,
-            "name": "+{percentage}% of Melee Damage",
+            "name": "+{percentage}% of Damage of Infantry",
             "name_key": "attribute_4_name",
             "description_key": "attribute_4_description",
-            "description": "Increases melee damage by {percentage}%"
-        },
-        {
-            "id": 5,
-            "attack_type_id": 2,
-            "name": "+{percentage}% of Arrow Damage",
-            "name_key": "attribute_5_name",
-            "description_key": "attribute_5_description",
-            "description": "Increases arrow damage by {percentage}%"
-        },
-        {
-            "id": 6,
-            "attack_type_id": 3,
-            "name": "+{percentage}% of Magic Damage",
-            "name_key": "attribute_6_name",
-            "description_key": "attribute_6_description",
-            "description": "Increases magic damage by {percentage}%"
-        },
-        {
-            "id": 7,
-            "attack_type_id": 4,
-            "name": "+{percentage}% of Siege Damage",
-            "name_key": "attribute_7_name",
-            "description_key": "attribute_7_description",
-            "description": "Increases siege damage by {percentage}%"
+            "description": "Increases damage of Infantry by {percentage}%"
+        }
+    ],
+    "unit_upgrades": [
+        { // placeholder
+            "id": 1,
+            "stats": {
+                "health": null,
+                "attack": null,
+                "initiative": null,
+                "speed": null,
+                "range": null
+            },
+            "attributes": [
+                {
+                    "attribute_type_id": null,
+                    "percentage": null
+                }
+            ]
         }
     ],
     "units": [
@@ -286,7 +280,9 @@
                 "initiative": 100,
                 "speed": 3, // distancia de quadrados que pode-se andar
                 "range": null // só arqueiros tem range
-            }
+            },
+            "attributes": null,
+            "upgrade_ids": []
         },
         {
             "id": 2,
@@ -317,7 +313,8 @@
                     "attribute_id": 1,
                     "value": 50
                 }
-            ]
+            ],
+            "upgrade_ids": []
         },
         {
             "id": 3,
@@ -337,30 +334,26 @@
             "training_building_id": 2,
             "training_building_min_level": 1,
             "stats": {
-                "health": 175,
-                "attack": 35,
+                "health": 80,
+                "attack": 30,
                 "initiative": 80,
                 "speed": 3, // distancia de quadrados que pode-se andar
-                "range": null // só arqueiros tem range
-            }
+                "range": 4 // só arqueiros tem range
+            },
+            "attributes": null,
+            "upgrade_ids": []
         },
         {
             "id": 4,
-            "name": "Invocador de Tempestades",
+            "name": "Storm Summoner",
             "name_key": "unit_4_name",
             "description_key": "unit_4_description",
-            "description": "",
-            "training_time": 600,
-            "training_cost": [
-                {
-                    "type": "resource",
-                    "resource_id": 1,
-                    "quantity": 560
-                }
-            ],
+            "description": "STORM_SUMMONER_DESCRIPTION",
+            "training_time": null,
+            "training_cost": null,
             "attack_type_id": 1,
-            "training_building_id": 2,
-            "training_building_min_level": 1,
+            "training_building_id": null,
+            "training_building_min_level": null,
             "stats": {
                 "health": 300,
                 "attack": 60,
@@ -373,7 +366,8 @@
                     "attribute_id": 4,
                     "value": 50
                 }
-            ]
+            ],
+            "upgrade_ids": []
         }
     ], // unidades do jogo
     "buildings": [
@@ -395,7 +389,8 @@
                 "initiative": null,
                 "speed": null,
                 "range": null
-            }
+            },
+            "attributes": null
         },
         {
             "id": 2,
@@ -422,16 +417,17 @@
             ],
             "construction_time": null,
             "size": {
-                "width": 2,
-                "height": 2
+                "width": 4,
+                "height": 4
             },
             "stats": {
-                "health": 0, // ainda não sei
+                "health": 120,
                 "attack": null,
                 "initiative": null,
-                "speed": null, // distancia de quadrados que pode-se andar
-                "range": null // só arqueiros tem range
-            }
+                "speed": null,
+                "range": null
+            },
+            "attributes": null
         },
         {
             "id": 3,
@@ -456,16 +452,17 @@
                 "height": 2
             },
             "stats": {
-                "health": 0, // ainda não sei
+                "health": 60,
                 "attack": null,
                 "initiative": null,
-                "speed": null, // distancia de quadrados que pode-se andar
-                "range": null // só arqueiros tem range
-            }
+                "speed": null,
+                "range": null
+            },
+            "attributes": null
         },
         {
             "id": 4,
-            "name": "Archer Range",
+            "name": "Archery Range",
             "name_key": "building_4_name",
             "description_key": "building_4_description",
             "description": "Archers are trained here",
@@ -492,12 +489,13 @@
                 "height": 4
             },
             "stats": {
-                "health": 0, // ainda não sei
+                "health": 120,
                 "attack": null,
                 "initiative": null,
                 "speed": null,
                 "range": null
-            }
+            },
+            "attributes": null
         },
         {
             "id": 5,
@@ -529,9 +527,164 @@
                 "initiative": null,
                 "speed": null,
                 "range": null
-            }
+            },
+            "attributes": null
         },
-
+        {
+            "id": 6,
+            "name": "Sanctuary",
+            "name_key": "building_6_name",
+            "description_key": "building_6_description",
+            "description": "SANCTUARY_DESCRIPTION",
+            "shop_item_category_id": 3,
+            "price": [], // não sei o preço ainda
+            "construction_time": 0, // ainda não sei
+            "size": {
+                "width": 4,
+                "height": 4
+            },
+            "stats": {
+                "health": 180,
+                "attack": null,
+                "initiative": null,
+                "speed": null,
+                "range": null
+            },
+            "attributes": null
+        },
+        {
+            "id": 7,
+            "name": "Watchtower",
+            "name_key": "building_7_name",
+            "description_key": "building_7_description",
+            "description": "WATCHTOWER_DESCRIPTION",
+            "shop_item_category_id": 3,
+            "price": [], // não sei o preço ainda
+            "construction_time": 0, // ainda não sei
+            "size": {
+                "width": 4,
+                "height": 4
+            },
+            "stats": {
+                "health": 200,
+                "attack": 30,
+                "initiative": 70,
+                "speed": null,
+                "range": 5
+            },
+            "attributes": null
+        },
+        {
+            "id": 8,
+            "name": "Vault",
+            "name_key": "building_8_name",
+            "description_key": "building_8_description",
+            "description": "VAULT_DESCRIPTION",
+            "shop_item_category_id": 3,
+            "price": [], // não sei o preço ainda
+            "construction_time": 0, // ainda não sei
+            "size": {
+                "width": 4,
+                "height": 4
+            },
+            "stats": {
+                "health": 120,
+                "attack": null,
+                "initiative": null,
+                "speed": null,
+                "range": null
+            },
+            "attributes": null
+        },
+        {
+            "id": 9,
+            "name": "Smithy",
+            "name_key": "building_9_name",
+            "description_key": "building_9_description",
+            "description": "SMITHY_DESCRIPTION",
+            "shop_item_category_id": 3,
+            "price": [], // não sei o preço ainda
+            "construction_time": 0, // ainda não sei
+            "size": {
+                "width": 4,
+                "height": 4
+            },
+            "stats": {
+                "health": 120,
+                "attack": null,
+                "initiative": null,
+                "speed": null,
+                "range": null
+            },
+            "attributes": null
+        },
+        {
+            "id": 10,
+            "name": "Mine",
+            "name_key": "building_10_name",
+            "description_key": "building_10_description",
+            "description": "MINE_DESCRIPTION",
+            "shop_item_category_id": 3,
+            "price": [], // não sei o preço ainda
+            "construction_time": 0, // ainda não sei
+            "size": {
+                "width": 4,
+                "height": 4
+            },
+            "stats": {
+                "health": 120,
+                "attack": null,
+                "initiative": null,
+                "speed": null,
+                "range": null
+            },
+            "attributes": null
+        },
+        {
+            "id": 11,
+            "name": "Timber Hut",
+            "name_key": "building_11_name",
+            "description_key": "building_11_description",
+            "description": "TIMBER_HUT_DESCRIPTION",
+            "shop_item_category_id": 3,
+            "price": [], // não sei o preço ainda
+            "construction_time": 0, // ainda não sei
+            "size": {
+                "width": 4,
+                "height": 4
+            },
+            "stats": {
+                "health": 60,
+                "attack": null,
+                "initiative": null,
+                "speed": null,
+                "range": null
+            },
+            "attributes": null
+        },
+        // pedreira
+        {
+            "id": 12,
+            "name": "Quarry",
+            "name_key": "building_12_name",
+            "description_key": "building_12_description",
+            "description": "QUARRY_DESCRIPTION",
+            "shop_item_category_id": 3,
+            "price": [], // não sei o preço ainda
+            "construction_time": 0, // ainda não sei
+            "size": {
+                "width": 4,
+                "height": 4
+            },
+            "stats": {
+                "health": 60,
+                "attack": null,
+                "initiative": null,
+                "speed": null,
+                "range": null
+            },
+            "attributes": null
+        }
     ], // construções do jogo
     "kingdom_land_chunk_size": {
         "width": 5,
@@ -725,6 +878,8 @@
             "description": "Go to Shop and click on the right tab"
         }
     ], // tarefas de missões
-    "castle_researches": [], // para desbloquear e melhorar construções
+    "castle_researches": [
+
+    ], // para desbloquear e melhorar construções
     "arsenal_researches": [] // para desbloquerar e melhorar unidades
 }

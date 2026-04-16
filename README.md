@@ -4,7 +4,7 @@ Este repositório contém o arquivo mestre de configuração para o **Knights: C
 
 ## 📜 Visão Geral
 
-O arquivo [`config.json`](./config.json) é o coração do jogo. Ele define o comportamento de todas as entidades, desde a inteligência de combate das tropas até os diálogos épicos da campanha principal.
+O arquivo [`config.json`](./config.json) é o coração do jogo, enquanto o [`en.json`](./en.json) provê a localização em inglês para todas as chaves de texto. Ele define o comportamento de todas as entidades, desde a inteligência de combate das tropas até os diálogos épicos da campanha principal.
 
 ---
 
