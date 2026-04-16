@@ -684,25 +684,370 @@
                 "range": null
             },
             "attributes": null
+        },
+        {
+            "id": 13,
+            "name": "Altar of Heroes",
+            "name_key": "building_13_name",
+            "description_key": "building_13_description",
+            "description": "ALTAR_OF_HEROES_DESCRIPTION",
+            "price": null,
+            "construction_time": 7200,
+            "size": {
+                "width": 6,
+                "height": 6
+            },
+            "stats": {
+                "health": 500,
+                "attack": null,
+                "initiative": null,
+                "speed": null,
+                "range": null
+            },
+            "attributes": null
+        },
+        {
+            "id": 14,
+            "name": "Market",
+            "name_key": "building_14_name",
+            "description_key": "building_14_description",
+            "description": "MARKET_DESCRIPTION",
+            "price": null,
+            "construction_time": 3600,
+            "size": {
+                "width": 6,
+                "height": 6
+            },
+            "stats": {
+                "health": 300,
+                "attack": null,
+                "initiative": null,
+                "speed": null,
+                "range": null
+            },
+            "attributes": null
         }
     ], // construções do jogo
     "kingdom_land_chunk_size": {
-        "width": 5,
-        "height": 5
+        "width": 12,
+        "height": 12
     }, // tamanho dos pedaços de terra
     "kingdom_land_chunks": [ // pedaços de terra (5x5 pedaços totais, os ao redor do 3x3 são de expansão)
         {
             "id": 1,
+            "is_expansion": false,
+            "position": { "x": 1, "y": 1 },
+            "price": null
+        },
+        {
+            "id": 2,
+            "is_expansion": false,
+            "position": { "x": 2, "y": 1 },
+            "price": null
+        },
+        {
+            "id": 3,
+            "is_expansion": false,
+            "position": { "x": 3, "y": 1 },
+            "price": null
+        },
+        {
+            "id": 4,
+            "is_expansion": false,
+            "position": { "x": 1, "y": 2 },
+            "price": null
+        },
+        {
+            "id": 5,
+            "is_expansion": false,
+            "position": { "x": 2, "y": 2 },
+            "price": null
+        },
+        {
+            "id": 6,
+            "is_expansion": false,
+            "position": { "x": 3, "y": 2 },
+            "price": null
+        },
+        {
+            "id": 7,
+            "is_expansion": false,
+            "position": { "x": 1, "y": 3 },
+            "price": null
+        },
+        {
+            "id": 8,
+            "is_expansion": false,
+            "position": { "x": 2, "y": 3 },
+            "price": null
+        },
+        {
+            "id": 9,
+            "is_expansion": false,
+            "position": { "x": 3, "y": 3 },
+            "price": null
+        },
+        {
+            "id": 10,
+            "is_expansion": true,
+            "position": { "x": 0, "y": 0 },
             "price": [
                 {
                     "type": "resource",
                     "resource_id": 1,
-                    "quantity": 0
+                    "quantity": 1000
+                }
+            ]
+        },
+        {
+            "id": 11,
+            "is_expansion": true,
+            "position": { "x": 1, "y": 0 },
+            "price": [
+                {
+                    "type": "resource",
+                    "resource_id": 1,
+                    "quantity": 1000
+                }
+            ]
+        },
+        {
+            "id": 12,
+            "is_expansion": true,
+            "position": { "x": 2, "y": 0 },
+            "price": [
+                {
+                    "type": "resource",
+                    "resource_id": 1,
+                    "quantity": 1000
+                }
+            ]
+        },
+        {
+            "id": 13,
+            "is_expansion": true,
+            "position": { "x": 3, "y": 0 },
+            "price": [
+                {
+                    "type": "resource",
+                    "resource_id": 1,
+                    "quantity": 1000
+                }
+            ]
+        },
+        {
+            "id": 14,
+            "is_expansion": true,
+            "position": { "x": 4, "y": 0 },
+            "price": [
+                {
+                    "type": "resource",
+                    "resource_id": 1,
+                    "quantity": 1000
+                }
+            ]
+        },
+        {
+            "id": 15,
+            "is_expansion": true,
+            "position": { "x": 4, "y": 1 },
+            "price": [
+                {
+                    "type": "resource",
+                    "resource_id": 1,
+                    "quantity": 1000
+                }
+            ]
+        },
+        {
+            "id": 16,
+            "is_expansion": true,
+            "position": { "x": 4, "y": 2 },
+            "price": [
+                {
+                    "type": "resource",
+                    "resource_id": 1,
+                    "quantity": 1000
+                }
+            ]
+        },
+        {
+            "id": 17,
+            "is_expansion": true,
+            "position": { "x": 4, "y": 3 },
+            "price": [
+                {
+                    "type": "resource",
+                    "resource_id": 1,
+                    "quantity": 1000
+                }
+            ]
+        },
+        {
+            "id": 18,
+            "is_expansion": true,
+            "position": { "x": 4, "y": 4 },
+            "price": [
+                {
+                    "type": "resource",
+                    "resource_id": 1,
+                    "quantity": 1000
+                }
+            ]
+        },
+        {
+            "id": 19,
+            "is_expansion": true,
+            "position": { "x": 3, "y": 4 },
+            "price": [
+                {
+                    "type": "resource",
+                    "resource_id": 1,
+                    "quantity": 1000
+                }
+            ]
+        },
+        {
+            "id": 20,
+            "is_expansion": true,
+            "position": { "x": 2, "y": 4 },
+            "price": [
+                {
+                    "type": "resource",
+                    "resource_id": 1,
+                    "quantity": 1000
+                }
+            ]
+        },
+        {
+            "id": 21,
+            "is_expansion": true,
+            "position": { "x": 1, "y": 4 },
+            "price": [
+                {
+                    "type": "resource",
+                    "resource_id": 1,
+                    "quantity": 1000
+                }
+            ]
+        },
+        {
+            "id": 22,
+            "is_expansion": true,
+            "position": { "x": 0, "y": 4 },
+            "price": [
+                {
+                    "type": "resource",
+                    "resource_id": 1,
+                    "quantity": 1000
+                }
+            ]
+        },
+        {
+            "id": 23,
+            "is_expansion": true,
+            "position": { "x": 0, "y": 3 },
+            "price": [
+                {
+                    "type": "resource",
+                    "resource_id": 1,
+                    "quantity": 1000
+                }
+            ]
+        },
+        {
+            "id": 24,
+            "is_expansion": true,
+            "position": { "x": 0, "y": 2 },
+            "price": [
+                {
+                    "type": "resource",
+                    "resource_id": 1,
+                    "quantity": 1000
+                }
+            ]
+        },
+        {
+            "id": 25,
+            "is_expansion": true,
+            "position": { "x": 0, "y": 1 },
+            "price": [
+                {
+                    "type": "resource",
+                    "resource_id": 1,
+                    "quantity": 1000
                 }
             ]
         }
     ],
-    "kingdom_buildings": [], // construções que já vem no terreno, mas tem que ser reconstruidas
+    "kingdom_buildings": [ // construções que já vem no terreno, mas tem que ser reconstruidas
+        {
+            "id": 1,
+            "building_id": 13,
+            "chunk_id": 1,
+            "position": {
+                "x": 0,
+                "y": 0
+            },
+            "is_built": false,
+            "reconstruction_price": [
+                {
+                    "type": "resource",
+                    "resource_id": 1,
+                    "quantity": 500
+                },
+                {
+                    "type": "resource",
+                    "resource_id": 3,
+                    "quantity": 50
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "building_id": 14,
+            "chunk_id": 4,
+            "position": {
+                "x": 0,
+                "y": 0
+            },
+            "is_built": false,
+            "reconstruction_price": [
+                {
+                    "type": "resource",
+                    "resource_id": 1,
+                    "quantity": 300
+                },
+                {
+                    "type": "resource",
+                    "resource_id": 2,
+                    "quantity": 100
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "building_id": 6,
+            "chunk_id": 9,
+            "position": {
+                "x": 6,
+                "y": 6
+            },
+            "is_built": false,
+            "reconstruction_price": [
+                {
+                    "type": "resource",
+                    "resource_id": 1,
+                    "quantity": 1000
+                },
+                {
+                    "type": "resource",
+                    "resource_id": 5,
+                    "quantity": 5
+                }
+            ]
+        }
+    ],
     "campaign_nodes": [
         {
             "id": 1,
@@ -861,7 +1206,7 @@
             "name_key": "quest_task_1",
             "name": "Start the battle \"Patrol\"",
             "description_key": "quest_task_1_description",
-            "description": "Select battle \"Patrol\" on the map of Greenmeere",
+            "description": "Select battle \"Patrol\" on the map of Greenmeere"
         },
         {
             "id": 2,
@@ -879,7 +1224,87 @@
         }
     ], // tarefas de missões
     "castle_researches": [
-
+        {
+            "id": 1,
+            "name_key": "castle_research_1_name",
+            "name": "PLACEHOLDER",
+            "price": [
+                {
+                    "type": "resource",
+                    "resource_id": 1,
+                    "quantity": 100
+                },
+                {
+                    "type": "resource",
+                    "resource_id": 6,
+                    "quantity": 5
+                }
+            ],
+            "research_time": 3600,
+            "building_upgrade_id": null,
+            "unlock_building_id": null
+        }
     ], // para desbloquear e melhorar construções
-    "arsenal_researches": [] // para desbloquerar e melhorar unidades
+    "arsenal_researches": [
+        {
+            "id": 1,
+            "name_key": "arsenal_research_1_name",
+            "name": "PLACEHOLDER",
+            "price": [
+                {
+                    "type": "resource",
+                    "resource_id": 1,
+                    "quantity": 100
+                },
+                {
+                    "type": "resource",
+                    "resource_id": 6,
+                    "quantity": 5
+                }
+            ],
+            "research_time": 3600,
+            "unit_upgrade_id": null,
+            "unlock_unit_id": null
+        }
+    ], // para desbloquerar e melhorar unidades
+    "items": [
+        {
+            "id": 1,
+            "name_key": "item_1_name",
+            "name": "PLACEHOLDER",
+            "sell_price": [
+                {
+                    "type": "resource",
+                    "resource_id": 1,
+                    "quantity": 100
+                }
+            ]
+        }
+    ], // itens como pedra de carvão, barras de aço, chassi de catapulta, etc
+    "chest_rewards": [
+        {
+            "id": 1,
+            "name_key": "chest_reward_1_name",
+            "name": "PLACEHOLDER",
+            "type": "unit", // unit, item, chest, resource
+            "unit_id": null,
+            "item_id": null,
+            "chest_id": null,
+            "resource_id": null,
+            "quantity": 1
+        }
+    ],
+    "chests": [
+        {
+            "id": 1,
+            "name_key": "chest_1_name",
+            "name": "PLACEHOLDER",
+            "rewards": [
+                {
+                    "chest_reward_id": 1,
+                    "chance": 100
+                }
+            ]
+        }
+    ]
 }

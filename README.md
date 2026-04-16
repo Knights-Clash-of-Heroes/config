@@ -30,11 +30,23 @@ As unidades (Militiaman, Hireling, Ranger, etc.) possuem requisitos específicos
 ### 🏰 Gestão do Reino (Kingdom)
 Gerencia o layout e a infraestrutura:
 - **Edifícios de Produção:** Farm, Mine, Timber Hut, Quarry, Smithy.
-- **Edifícios de Utilidade:** Sanctuary (Cura/Espiritual), Vault (Armazenamento), Pavillion (Habitação).
+- **Edifícios de Utilidade:** Sanctuary (Cura/Espiritual), Vault (Armazenamento), Pavillion (Habitação), **Market** (Comércio).
+- **Edifícios Especiais:** **Altar of Heroes**, o local sagrado para ressuscitar e gerenciar seus heróis.
 - **Defesa & Militar:** Watchtower, Barracks, Archery Range.
 - **Centro do Poder:** Castle, o coração do reino.
-- **Tempo de Construção:** Introduzido o `construction_time` para gerenciar a progressão de obras.
-- **Categorias de Loja:** Nova segmentação incluindo Master Buildings, Defense, Production, Decor, Resources e Elite Wares.
+- **Sistema de Terrenos (Chunks):** Grade 5x5 de chunks (12x12 tiles cada). O jogador começa com o centro 3x3 e deve expandir para as extremidades.
+- **Reconstrução:** Sistema de `kingdom_buildings` para edifícios que já existem no mapa (ruínas) e exigem um custo de reconstrução para serem ativados.
+- **Tempo de Construção:** Gerenciamento de progressão técnica de obras via `construction_time`.
+
+### 📚 Tecnologia & Pesquisa
+Expandindo o poder do reino através de estudos:
+- **Castle Researches:** Pesquisas focadas em desbloquear novos edifícios e melhorias de infraestrutura.
+- **Arsenal Researches:** Melhorias tecnológicas para fortalecer as unidades e desbloquear tropas de elite.
+
+### 📦 Itens & Recompensas
+O sistema de loot e inventário:
+- **Items:** Recursos processados e materiais (ex: pedras de carvão, barras de aço) que podem ser vendidos ou usados em construções.
+- **Chests & Rewards:** Sistema de baús com recompensas probabilísticas (`chest_rewards`), podendo conter unidades, itens ou recursos.
 
 ### 🗺️ Campanha & Missões
 - **Quests & Tasks:** Sistema de objetivos encadeados com recompensas por nível.
@@ -57,11 +69,14 @@ A configuração está organizada para suportar a complexidade crescente do moto
   "attribute_types": [],    // Modificadores de combate e resistências
   "units": [],              // Dados das tropas e requisitos de treino
   "buildings": [],          // Dados das construções e tempos de obra
-  "kingdom_land_chunks": [], // Dados de terreno/expansão
+  "kingdom_land_chunks": [], // Grade 5x5 de terrenos (Default vs Expansion)
+  "kingdom_buildings": [],   // Edifícios pré-instalados para reconstrução
   "campaign_nodes": [],     // Fases da campanha
   "quests": [],             // Missões e tarefas
   "castle_researches": [],  // Pesquisas do Castelo (desbloqueios/melhorias)
-  "arsenal_researches": []  // Pesquisas do Arsenal (melhorias de unidades)
+  "arsenal_researches": [], // Pesquisas do Arsenal (melhorias de unidades)
+  "items": [],              // Itens de inventário e materiais
+  "chests": []              // Baús de recompensas e tabelas de drop
 }
 ```
 
