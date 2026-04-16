@@ -29,13 +29,17 @@ As unidades (Militiaman, Hireling, Ranger, etc.) possuem requisitos específicos
 
 ### 🏰 Gestão do Reino (Kingdom)
 Gerencia o layout e a infraestrutura:
-- **Edifícios Diversificados:** Archer Range (Arquearia), Farm (Produção), além de Castle e Barracks.
+- **Edifícios de Produção:** Farm, Mine, Timber Hut, Quarry, Smithy.
+- **Edifícios de Utilidade:** Sanctuary (Cura/Espiritual), Vault (Armazenamento), Pavillion (Habitação).
+- **Defesa & Militar:** Watchtower, Barracks, Archery Range.
+- **Centro do Poder:** Castle, o coração do reino.
 - **Tempo de Construção:** Introduzido o `construction_time` para gerenciar a progressão de obras.
-- **Categorias de Loja:** Nova segmentação incluindo Defense, Production, Decor, Resources e Elite Wares.
+- **Categorias de Loja:** Nova segmentação incluindo Master Buildings, Defense, Production, Decor, Resources e Elite Wares.
 
 ### 🗺️ Campanha & Missões
 - **Quests & Tasks:** Sistema de objetivos encadeados com recompensas por nível.
-- **Diálogos Sugestivos:** Sistema de citações (`campaign_quotes`) que guiam a narrativa entre os personagens como Roland e o Necromancer.
+- **Narrativa Interativa:** Diálogos e citações (`campaign_quotes`) entre personagens como Roland e o Necromancer que guiam a história.
+- **Nós de Campanha:** Fases progressivas com recompensas e restrições de unidades.
 
 ---
 
@@ -55,7 +59,9 @@ A configuração está organizada para suportar a complexidade crescente do moto
   "buildings": [],          // Dados das construções e tempos de obra
   "kingdom_land_chunks": [], // Dados de terreno/expansão
   "campaign_nodes": [],     // Fases da campanha
-  "quests": []              // Missões e tarefas
+  "quests": [],             // Missões e tarefas
+  "castle_researches": [],  // Pesquisas do Castelo (desbloqueios/melhorias)
+  "arsenal_researches": []  // Pesquisas do Arsenal (melhorias de unidades)
 }
 ```
 
