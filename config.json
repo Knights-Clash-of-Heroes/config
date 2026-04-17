@@ -1,4 +1,54 @@
 {
+    "initial_state": {
+        "resources": [
+            {
+                "resource_id": 1,
+                "quantity": 5000
+            },
+            {
+                "resource_id": 2,
+                "quantity": 50
+            },
+            {
+                "resource_id": 3,
+                "quantity": 0
+            },
+            {
+                "resource_id": 4,
+                "quantity": 0
+            },
+            {
+                "resource_id": 5,
+                "quantity": 10
+            },
+            {
+                "resource_id": 6,
+                "quantity": 0
+            },
+            {
+                "resource_id": 7,
+                "quantity": "maximum"
+            },
+            {
+                "resource_id": 8,
+                "quantity": 0
+            },
+            {
+                "resource_id": 9,
+                "quantity": 0
+            },
+            {
+                "resource_id": 10,
+                "quantity": 0
+            }
+        ],
+        "buildings": [
+            {
+                "building_id": 1
+            }
+        ]
+    },
+
     "resources": [
         {
             "id": 1,
@@ -72,7 +122,7 @@
         }
     ], // recursos do jogo, para comprar e construir coisas
     "energy": {
-        "maximum": 6,
+        "maximum": 3,
         "regeneration_time": 3600,
         "regeneration_quantity": 1
     },
@@ -178,28 +228,10 @@
             ]
         }
     ], // níveis do jogo, nível máximo é 15
-    "attack_types": [
-        {
-            "id": 1,
-            "key": "melee"
-        },
-        {
-            "id": 2,
-            "key": "arrow"
-        },
-        {
-            "id": 3,
-            "key": "magic"
-        },
-        {
-            "id": 4,
-            "key": "siege"
-        }
-    ],
     "attribute_types": [
         {
             "id": 0,
-            "attack_type_id": 1,
+            "attack_type": "melee",
             "name": "-{percentage}% of Melee Damage",
             "name_key": "attribute_0_name",
             "description_key": "attribute_0_description",
@@ -207,7 +239,7 @@
         },
         {
             "id": 1,
-            "attack_type_id": 2,
+            "attack_type": "arrow",
             "name": "-{percentage}% of Arrow Damage",
             "name_key": "attribute_1_name",
             "description_key": "attribute_1_description",
@@ -215,7 +247,7 @@
         },
         {
             "id": 2,
-            "attack_type_id": 3,
+            "attack_type": "magic",
             "name": "-{percentage}% of Magic Damage",
             "name_key": "attribute_2_name",
             "description_key": "attribute_2_description",
@@ -223,7 +255,7 @@
         },
         {
             "id": 3,
-            "attack_type_id": 4,
+            "attack_type": "siege",
             "name": "-{percentage}% of Siege Damage",
             "name_key": "attribute_3_name",
             "description_key": "attribute_3_description",
@@ -231,7 +263,7 @@
         },
         {
             "id": 4,
-            "attack_type_id": 1,
+            "attack_type": "melee",
             "name": "+{percentage}% of Damage of Infantry",
             "name_key": "attribute_4_name",
             "description_key": "attribute_4_description",
@@ -250,7 +282,7 @@
             },
             "attributes": [
                 {
-                    "attribute_type_id": null,
+                    "attribute_type": null,
                     "percentage": null
                 }
             ]
@@ -271,9 +303,14 @@
                     "quantity": 380
                 }
             ],
-            "attack_type_id": 1,
+            "unit_type": "on_foot",
+            "attack_type": "melee",
             "training_building_id": 2,
             "training_building_min_level": 1,
+            "size": {
+                "width": 1,
+                "height": 1
+            },
             "stats": {
                 "health": 100,
                 "attack": 25,
@@ -298,9 +335,14 @@
                     "quantity": 750
                 }
             ],
-            "attack_type_id": 1,
+            "unit_type": "on_foot",
+            "attack_type": "melee",
             "training_building_id": 2,
             "training_building_min_level": 1,
+            "size": {
+                "width": 1,
+                "height": 1
+            },
             "stats": {
                 "health": 175,
                 "attack": 35,
@@ -330,9 +372,14 @@
                     "quantity": 560
                 }
             ],
-            "attack_type_id": 1,
+            "unit_type": "on_foot",
+            "attack_type": "melee",
             "training_building_id": 2,
             "training_building_min_level": 1,
+            "size": {
+                "width": 1,
+                "height": 1
+            },
             "stats": {
                 "health": 80,
                 "attack": 30,
@@ -351,9 +398,14 @@
             "description": "STORM_SUMMONER_DESCRIPTION",
             "training_time": null,
             "training_cost": null,
-            "attack_type_id": 1,
+            "unit_type": "on_foot",
+            "attack_type": "melee",
             "training_building_id": null,
             "training_building_min_level": null,
+            "size": {
+                "width": 1,
+                "height": 1
+            },
             "stats": {
                 "health": 300,
                 "attack": 60,
@@ -380,8 +432,8 @@
             "price": null,
             "construction_time": null,
             "size": {
-                "width": 8,
-                "height": 8
+                "width": 6,
+                "height": 6
             },
             "stats": {
                 "health": 0, // ainda não sei
@@ -694,8 +746,8 @@
             "price": null,
             "construction_time": 7200,
             "size": {
-                "width": 6,
-                "height": 6
+                "width": 5,
+                "height": 5
             },
             "stats": {
                 "health": 500,
@@ -715,8 +767,8 @@
             "price": null,
             "construction_time": 3600,
             "size": {
-                "width": 6,
-                "height": 6
+                "width": 5,
+                "height": 5
             },
             "stats": {
                 "health": 300,
@@ -729,68 +781,98 @@
         }
     ], // construções do jogo
     "kingdom_land_chunk_size": {
-        "width": 12,
-        "height": 12
+        "width": 8,
+        "height": 8
     }, // tamanho dos pedaços de terra
     "kingdom_land_chunks": [ // pedaços de terra (5x5 pedaços totais, os ao redor do 3x3 são de expansão)
         {
             "id": 1,
             "is_expansion": false,
-            "position": { "x": 1, "y": 1 },
+            "position": {
+                "x": 1,
+                "y": 1
+            },
             "price": null
         },
         {
             "id": 2,
             "is_expansion": false,
-            "position": { "x": 2, "y": 1 },
+            "position": {
+                "x": 2,
+                "y": 1
+            },
             "price": null
         },
         {
             "id": 3,
             "is_expansion": false,
-            "position": { "x": 3, "y": 1 },
+            "position": {
+                "x": 3,
+                "y": 1
+            },
             "price": null
         },
         {
             "id": 4,
             "is_expansion": false,
-            "position": { "x": 1, "y": 2 },
+            "position": {
+                "x": 1,
+                "y": 2
+            },
             "price": null
         },
         {
             "id": 5,
             "is_expansion": false,
-            "position": { "x": 2, "y": 2 },
+            "position": {
+                "x": 2,
+                "y": 2
+            },
             "price": null
         },
         {
             "id": 6,
             "is_expansion": false,
-            "position": { "x": 3, "y": 2 },
+            "position": {
+                "x": 3,
+                "y": 2
+            },
             "price": null
         },
         {
             "id": 7,
             "is_expansion": false,
-            "position": { "x": 1, "y": 3 },
+            "position": {
+                "x": 1,
+                "y": 3
+            },
             "price": null
         },
         {
             "id": 8,
             "is_expansion": false,
-            "position": { "x": 2, "y": 3 },
+            "position": {
+                "x": 2,
+                "y": 3
+            },
             "price": null
         },
         {
             "id": 9,
             "is_expansion": false,
-            "position": { "x": 3, "y": 3 },
+            "position": {
+                "x": 3,
+                "y": 3
+            },
             "price": null
         },
         {
             "id": 10,
             "is_expansion": true,
-            "position": { "x": 0, "y": 0 },
+            "position": {
+                "x": 0,
+                "y": 0
+            },
             "price": [
                 {
                     "type": "resource",
@@ -802,7 +884,10 @@
         {
             "id": 11,
             "is_expansion": true,
-            "position": { "x": 1, "y": 0 },
+            "position": {
+                "x": 1,
+                "y": 0
+            },
             "price": [
                 {
                     "type": "resource",
@@ -814,7 +899,10 @@
         {
             "id": 12,
             "is_expansion": true,
-            "position": { "x": 2, "y": 0 },
+            "position": {
+                "x": 2,
+                "y": 0
+            },
             "price": [
                 {
                     "type": "resource",
@@ -826,7 +914,10 @@
         {
             "id": 13,
             "is_expansion": true,
-            "position": { "x": 3, "y": 0 },
+            "position": {
+                "x": 3,
+                "y": 0
+            },
             "price": [
                 {
                     "type": "resource",
@@ -838,7 +929,10 @@
         {
             "id": 14,
             "is_expansion": true,
-            "position": { "x": 4, "y": 0 },
+            "position": {
+                "x": 4,
+                "y": 0
+            },
             "price": [
                 {
                     "type": "resource",
@@ -850,7 +944,10 @@
         {
             "id": 15,
             "is_expansion": true,
-            "position": { "x": 4, "y": 1 },
+            "position": {
+                "x": 4,
+                "y": 1
+            },
             "price": [
                 {
                     "type": "resource",
@@ -862,7 +959,10 @@
         {
             "id": 16,
             "is_expansion": true,
-            "position": { "x": 4, "y": 2 },
+            "position": {
+                "x": 4,
+                "y": 2
+            },
             "price": [
                 {
                     "type": "resource",
@@ -874,7 +974,10 @@
         {
             "id": 17,
             "is_expansion": true,
-            "position": { "x": 4, "y": 3 },
+            "position": {
+                "x": 4,
+                "y": 3
+            },
             "price": [
                 {
                     "type": "resource",
@@ -886,7 +989,10 @@
         {
             "id": 18,
             "is_expansion": true,
-            "position": { "x": 4, "y": 4 },
+            "position": {
+                "x": 4,
+                "y": 4
+            },
             "price": [
                 {
                     "type": "resource",
@@ -898,7 +1004,10 @@
         {
             "id": 19,
             "is_expansion": true,
-            "position": { "x": 3, "y": 4 },
+            "position": {
+                "x": 3,
+                "y": 4
+            },
             "price": [
                 {
                     "type": "resource",
@@ -910,7 +1019,10 @@
         {
             "id": 20,
             "is_expansion": true,
-            "position": { "x": 2, "y": 4 },
+            "position": {
+                "x": 2,
+                "y": 4
+            },
             "price": [
                 {
                     "type": "resource",
@@ -922,7 +1034,10 @@
         {
             "id": 21,
             "is_expansion": true,
-            "position": { "x": 1, "y": 4 },
+            "position": {
+                "x": 1,
+                "y": 4
+            },
             "price": [
                 {
                     "type": "resource",
@@ -934,7 +1049,10 @@
         {
             "id": 22,
             "is_expansion": true,
-            "position": { "x": 0, "y": 4 },
+            "position": {
+                "x": 0,
+                "y": 4
+            },
             "price": [
                 {
                     "type": "resource",
@@ -946,7 +1064,10 @@
         {
             "id": 23,
             "is_expansion": true,
-            "position": { "x": 0, "y": 3 },
+            "position": {
+                "x": 0,
+                "y": 3
+            },
             "price": [
                 {
                     "type": "resource",
@@ -958,7 +1079,10 @@
         {
             "id": 24,
             "is_expansion": true,
-            "position": { "x": 0, "y": 2 },
+            "position": {
+                "x": 0,
+                "y": 2
+            },
             "price": [
                 {
                     "type": "resource",
@@ -970,7 +1094,10 @@
         {
             "id": 25,
             "is_expansion": true,
-            "position": { "x": 0, "y": 1 },
+            "position": {
+                "x": 0,
+                "y": 1
+            },
             "price": [
                 {
                     "type": "resource",
@@ -1267,6 +1394,8 @@
             "unlock_unit_id": null
         }
     ], // para desbloquerar e melhorar unidades
+    "runic_tower_researches": [],
+    "altar_of_heroes_researches": [],
     "items": [
         {
             "id": 1,
