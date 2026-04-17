@@ -7,7 +7,7 @@
             },
             {
                 "resource_id": 2,
-                "quantity": 50
+                "quantity": 10
             },
             {
                 "resource_id": 3,
@@ -19,7 +19,7 @@
             },
             {
                 "resource_id": 5,
-                "quantity": 10
+                "quantity": 50
             },
             {
                 "resource_id": 6,
@@ -59,10 +59,10 @@
         },
         {
             "id": 2,
-            "name": "Wood",
+            "name": "Crystal",
             "name_key": "resource_2_name",
             "description_key": "resource_2_description",
-            "description": "Wood is a resource used to build structures."
+            "description": "Crystal is a premium resource."
         },
         {
             "id": 3,
@@ -80,10 +80,10 @@
         },
         {
             "id": 5,
-            "name": "Crystal",
+            "name": "Wood",
             "name_key": "resource_5_name",
             "description_key": "resource_5_description",
-            "description": "Crystal is a premium resource."
+            "description": "Wood is a resource used to build structures."
         },
         {
             "id": 6,
