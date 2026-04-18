@@ -65,6 +65,18 @@
             "chunk_id": 14,
             "x": 0,
             "y": 3
+        },
+        {
+            "building_id": 13,
+            "chunk_id": 10,
+            "x": 1,
+            "y": 0
+        },
+        {
+            "building_id": 2,
+            "chunk_id": 6,
+            "x": 1,
+            "y": 4
         }
     ],
     "kingdom_chunk_ids": [1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -74,22 +86,36 @@
             "unit_id": 1,
             "chunk_id": 8,
             "direction": "N",
+            "x": 2,
+            "y": 4
+        },
+        {
+            "unit_id": 1,
+            "chunk_id": 8,
+            "direction": "N",
+            "x": 4,
+            "y": 4
+        },
+        {
+            "unit_id": 1,
+            "chunk_id": 8,
+            "direction": "N",
+            "x": 6,
+            "y": 4
+        },
+        {
+            "unit_id": 5,
+            "chunk_id": 8,
+            "direction": "N",
             "x": 3,
-            "y": 4
+            "y": 0
         },
         {
-            "unit_id": 1,
+            "unit_id": 5,
             "chunk_id": 8,
             "direction": "N",
-            "x": 5,
-            "y": 4
-        },
-        {
-            "unit_id": 1,
-            "chunk_id": 8,
-            "direction": "N",
-            "x": 7,
-            "y": 4
+            "x": 4,
+            "y": 0
         }
     ]
 }

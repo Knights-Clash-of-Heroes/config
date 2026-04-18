@@ -219,6 +219,7 @@
             "target_range": null,
             "training_building_id": 2,
             "training_building_min_level": 1,
+            "occupation": 1,
             "size": {
                 "width": 1,
                 "height": 1
@@ -308,10 +309,10 @@
         },
         {
             "id": 4,
-            "name": "Storm Summoner",
+            "name": "Stormcaller",
             "name_key": "unit_4_name",
             "description_key": "unit_4_description",
-            "description": "STORM_SUMMONER_DESCRIPTION",
+            "description": "STORMCALLER_DESCRIPTION",
             "training_time": null,
             "training_cost": null,
             "type": "on_foot",
@@ -789,6 +790,7 @@
             "attributes": null
         }
     ],
+    "heroes": [],
     "kingdom_land_chunk_size": {
         "width": 8,
         "height": 8
