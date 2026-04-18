@@ -29,7 +29,7 @@ There are no build or test commands in this repository - it's pure configuration
 
 ### JSON Structure
 
-- Use 2-space indentation
+- Use 4-space indentation
 - No trailing commas in arrays/objects
 - Use double quotes for all keys and string values
 - Group related sections with comments (e.g., `// recursos do jogo`)
@@ -67,8 +67,8 @@ There are no build or test commands in this repository - it's pure configuration
   "training_cost": [
     { "type": "resource", "resource_id": 1, "quantity": 380 }
   ],
-  "type_id": 1,
-  "attack_type_id": 1,
+  "type": "on_foot",
+  "attack_type": "melee",
   "training_building_id": 2,
   "training_building_min_level": 1,
   "size": { "width": 1, "height": 1 },

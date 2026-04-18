@@ -1,54 +1,4 @@
 {
-    "initial_state": {
-        "resources": [
-            {
-                "resource_id": 1,
-                "quantity": 5000
-            },
-            {
-                "resource_id": 2,
-                "quantity": 10
-            },
-            {
-                "resource_id": 3,
-                "quantity": 0
-            },
-            {
-                "resource_id": 4,
-                "quantity": 0
-            },
-            {
-                "resource_id": 5,
-                "quantity": 50
-            },
-            {
-                "resource_id": 6,
-                "quantity": 0
-            },
-            {
-                "resource_id": 7,
-                "quantity": "maximum"
-            },
-            {
-                "resource_id": 8,
-                "quantity": 0
-            },
-            {
-                "resource_id": 9,
-                "quantity": 0
-            },
-            {
-                "resource_id": 10,
-                "quantity": 0
-            }
-        ],
-        "buildings": [
-            {
-                "building_id": 1
-            }
-        ]
-    },
-
     "resources": [
         {
             "id": 1,
@@ -120,7 +70,7 @@
             "description_key": "resource_10_description",
             "description": "Gold Dragoon is a unit that can be trained in the Barracks."
         }
-    ], // recursos do jogo, para comprar e construir coisas
+    ],
     "energy": {
         "maximum": 3,
         "regeneration_time": 3600,
@@ -157,7 +107,7 @@
             "name": "Elite wares",
             "name_key": "shop_category_6_name"
         }
-    ], // categorias/abas da loja
+    ],
     "shop_items": [
         {
             "id": 3,
@@ -172,7 +122,7 @@
                 }
             ]
         }
-    ], // itens da loja
+    ],
     "levels": [
         {
             "id": 1,
@@ -197,7 +147,7 @@
         },
         {
             "id": 3,
-            "xp_required": 25, // soma o do anterior com o atual aí fica esse valor, o banco de dados vai gravar só o xp que o jogador tem e vai ser calculado no cliente qual é o nível dele
+            "xp_required": 25,
             "rewards": [
                 {
                     "type": "resource",
@@ -227,7 +177,7 @@
                 }
             ]
         }
-    ], // níveis do jogo, nível máximo é 15
+    ],
     "attribute_types": [
         {
             "id": 0,
@@ -271,7 +221,7 @@
         }
     ],
     "unit_upgrades": [
-        { // placeholder
+        {
             "id": 1,
             "stats": {
                 "health": null,
@@ -303,7 +253,7 @@
                     "quantity": 380
                 }
             ],
-            "unit_type": "on_foot",
+            "type": "on_foot",
             "attack_type": "melee",
             "training_building_id": 2,
             "training_building_min_level": 1,
@@ -315,8 +265,8 @@
                 "health": 100,
                 "attack": 25,
                 "initiative": 100,
-                "speed": 3, // distancia de quadrados que pode-se andar
-                "range": null // só arqueiros tem range
+                "speed": 3,
+                "range": null
             },
             "attributes": null,
             "upgrade_ids": []
@@ -335,7 +285,7 @@
                     "quantity": 750
                 }
             ],
-            "unit_type": "on_foot",
+            "type": "on_foot",
             "attack_type": "melee",
             "training_building_id": 2,
             "training_building_min_level": 1,
@@ -347,8 +297,8 @@
                 "health": 175,
                 "attack": 35,
                 "initiative": 80,
-                "speed": 3, // distancia de quadrados que pode-se andar
-                "range": null // só arqueiros tem range
+                "speed": 3,
+                "range": null
             },
             "attributes": [
                 {
@@ -372,7 +322,7 @@
                     "quantity": 560
                 }
             ],
-            "unit_type": "on_foot",
+            "type": "on_foot",
             "attack_type": "melee",
             "training_building_id": 2,
             "training_building_min_level": 1,
@@ -384,8 +334,8 @@
                 "health": 80,
                 "attack": 30,
                 "initiative": 80,
-                "speed": 3, // distancia de quadrados que pode-se andar
-                "range": 4 // só arqueiros tem range
+                "speed": 3,
+                "range": 4
             },
             "attributes": null,
             "upgrade_ids": []
@@ -398,7 +348,7 @@
             "description": "STORM_SUMMONER_DESCRIPTION",
             "training_time": null,
             "training_cost": null,
-            "unit_type": "on_foot",
+            "type": "on_foot",
             "attack_type": "melee",
             "training_building_id": null,
             "training_building_min_level": null,
@@ -410,8 +360,8 @@
                 "health": 300,
                 "attack": 60,
                 "initiative": 70,
-                "speed": 3, // distancia de quadrados que pode-se andar
-                "range": null // só arqueiros tem range
+                "speed": 3,
+                "range": null
             },
             "attributes": [
                 {
@@ -421,11 +371,11 @@
             ],
             "upgrade_ids": []
         }
-    ], // unidades do jogo
+    ],
     "buildings": [
         {
             "id": 1,
-            "name": "Castle",
+            "name": "Citadel",
             "name_key": "building_1_name",
             "description_key": "building_1_description",
             "description": "CASTLE_DESCRIPTION",
@@ -436,7 +386,7 @@
                 "height": 6
             },
             "stats": {
-                "health": 0, // ainda não sei
+                "health": 240,
                 "attack": null,
                 "initiative": null,
                 "speed": null,
@@ -568,13 +518,13 @@
                     "quantity": 10
                 }
             ],
-            "construction_time": 0, // ainda não sei
+            "construction_time": 0,
             "size": {
                 "width": 4,
                 "height": 4
             },
             "stats": {
-                "health": 0, // ainda não sei
+                "health": 0,
                 "attack": null,
                 "initiative": null,
                 "speed": null,
@@ -589,8 +539,8 @@
             "description_key": "building_6_description",
             "description": "SANCTUARY_DESCRIPTION",
             "shop_item_category_id": 3,
-            "price": [], // não sei o preço ainda
-            "construction_time": 0, // ainda não sei
+            "price": [],
+            "construction_time": 0,
             "size": {
                 "width": 4,
                 "height": 4
@@ -611,8 +561,8 @@
             "description_key": "building_7_description",
             "description": "WATCHTOWER_DESCRIPTION",
             "shop_item_category_id": 3,
-            "price": [], // não sei o preço ainda
-            "construction_time": 0, // ainda não sei
+            "price": [],
+            "construction_time": 0,
             "size": {
                 "width": 4,
                 "height": 4
@@ -633,8 +583,8 @@
             "description_key": "building_8_description",
             "description": "VAULT_DESCRIPTION",
             "shop_item_category_id": 3,
-            "price": [], // não sei o preço ainda
-            "construction_time": 0, // ainda não sei
+            "price": [],
+            "construction_time": 0,
             "size": {
                 "width": 4,
                 "height": 4
@@ -655,8 +605,8 @@
             "description_key": "building_9_description",
             "description": "SMITHY_DESCRIPTION",
             "shop_item_category_id": 3,
-            "price": [], // não sei o preço ainda
-            "construction_time": 0, // ainda não sei
+            "price": [],
+            "construction_time": 0,
             "size": {
                 "width": 4,
                 "height": 4
@@ -677,8 +627,8 @@
             "description_key": "building_10_description",
             "description": "MINE_DESCRIPTION",
             "shop_item_category_id": 3,
-            "price": [], // não sei o preço ainda
-            "construction_time": 0, // ainda não sei
+            "price": [],
+            "construction_time": 0,
             "size": {
                 "width": 4,
                 "height": 4
@@ -699,8 +649,8 @@
             "description_key": "building_11_description",
             "description": "TIMBER_HUT_DESCRIPTION",
             "shop_item_category_id": 3,
-            "price": [], // não sei o preço ainda
-            "construction_time": 0, // ainda não sei
+            "price": [],
+            "construction_time": 0,
             "size": {
                 "width": 4,
                 "height": 4
@@ -714,7 +664,6 @@
             },
             "attributes": null
         },
-        // pedreira
         {
             "id": 12,
             "name": "Quarry",
@@ -722,8 +671,8 @@
             "description_key": "building_12_description",
             "description": "QUARRY_DESCRIPTION",
             "shop_item_category_id": 3,
-            "price": [], // não sei o preço ainda
-            "construction_time": 0, // ainda não sei
+            "price": [],
+            "construction_time": 0,
             "size": {
                 "width": 4,
                 "height": 4
@@ -779,12 +728,12 @@
             },
             "attributes": null
         }
-    ], // construções do jogo
+    ],
     "kingdom_land_chunk_size": {
         "width": 8,
         "height": 8
-    }, // tamanho dos pedaços de terra
-    "kingdom_land_chunks": [ // pedaços de terra (5x5 pedaços totais, os ao redor do 3x3 são de expansão)
+    },
+    "kingdom_land_chunks": [
         {
             "id": 1,
             "is_expansion": false,
@@ -1107,7 +1056,7 @@
             ]
         }
     ],
-    "kingdom_buildings": [ // construções que já vem no terreno, mas tem que ser reconstruidas
+    "kingdom_buildings": [
         {
             "id": 1,
             "building_id": 13,
@@ -1209,23 +1158,121 @@
                 }
             ]
         }
-    ], // fases da campanha
+    ],
     "characters": [
         {
             "id": 1,
             "name_key": "character_1_name",
             "name": "Roland",
             "description_key": "character_1_description",
-            "description": "ROLAND DESCRIPTION"
+            "description": "Head of the Knights of the Round Table"
         },
         {
             "id": 2,
             "name_key": "character_2_name",
             "name": "Necromancer",
             "description_key": "character_2_description",
-            "description": "NECROMANCER DESCRIPTION"
+            "description": "NECROMANCER_DESCRIPTION"
+        },
+        {
+            "id": 3,
+            "name_key": "character_3_name",
+            "name": "Merlin",
+            "description_key": "character_3_description",
+            "description": "MERLIN_DESCRIPTION"
+        },
+        {
+            "id": 4,
+            "name_key": "character_4_name",
+            "name": "Ranoven Lastaroth",
+            "description_key": "character_4_description",
+            "description": "RANOVEN_LASTAROTH_DESCRIPTION"
+        },
+        {
+            "id": 5,
+            "name_key": "character_5_name",
+            "name": "Morgana",
+            "description_key": "character_4_description",
+            "description": "MORGANA_DESCRIPTION"
+        },
+        {
+            "id": 6,
+            "name_key": "character_5_name",
+            "name": "Lancelas",
+            "description_key": "character_5_description",
+            "description": "Darke Champion"
+        },
+        {
+            "id": 7,
+            "name_key": "character_6_name",
+            "name": "Swordsman",
+            "description_key": null,
+            "description": null
+        },
+        {
+            "id": 8,
+            "name_key": "character_7_name",
+            "name": "Peasant",
+            "description_key": "character_7_description",
+            "description": "PEASANT_DESCRIPTION"
+        },
+        {
+            "id": 9,
+            "name_key": "character_8_name",
+            "name": "Squire",
+            "description_key": "character_8_description",
+            "description": "SQUIRE_DESCRIPTION"
+        },
+        {
+            "id": 10,
+            "name_key": "character_9_name",
+            "name": "Isolda",
+            "description_key": "character_9_description",
+            "description": "Heir to the throne of Albion"
+        },
+        {
+            "id": 11,
+            "name_key": "character_10_name",
+            "name": "Archer",
+            "description_key": null,
+            "description": null
+        },
+        {
+            "id": 12,
+            "name_key": "character_11_name",
+            "name": "Robin",
+            "description_key": "character_11_description",
+            "description": "Leader of the Free Archers"
+        },
+        {
+            "id": 13,
+            "name_key": "character_12_name",
+            "name": "Mathildegard",
+            "description_key": "character_12_description",
+            "description": "Master of swordsplay"
+        },
+        {
+            "id": 14,
+            "name_key": "character_13_name",
+            "name": "Dwarf Bomber",
+            "description_key": null,
+            "description": null
+        },
+        {
+            "id": 15,
+            "name_key": "character_14_name",
+            "name": "Boreas the Herbalist",
+            "description_key": "character_14_description",
+            "description": "Master of the Potions and Elixirs"
+        },
+        {
+            "id": 16,
+            "name_key": "character_15_name",
+            "name": "Pilpo",
+            "description_key": null,
+            "description": null
         }
-    ], // personagens do jogo
+    ],
     "campaign_quotes": [
         {
             "id": 1,
@@ -1275,7 +1322,7 @@
             "quote_key": "campaign_quote_8_quote",
             "quote": "The Necromancer fled! I doubt for long, however..."
         }
-    ], // falas durante a campanha
+    ],
     "quests": [
         {
             "id": 1,
@@ -1326,7 +1373,7 @@
                 }
             ]
         }
-    ], // missões/objetivos do jogo
+    ],
     "quest_tasks": [
         {
             "id": 1,
@@ -1349,7 +1396,7 @@
             "description_key": "quest_task_3_description",
             "description": "Go to Shop and click on the right tab"
         }
-    ], // tarefas de missões
+    ],
     "castle_researches": [
         {
             "id": 1,
@@ -1371,7 +1418,7 @@
             "building_upgrade_id": null,
             "unlock_building_id": null
         }
-    ], // para desbloquear e melhorar construções
+    ],
     "arsenal_researches": [
         {
             "id": 1,
@@ -1393,7 +1440,7 @@
             "unit_upgrade_id": null,
             "unlock_unit_id": null
         }
-    ], // para desbloquerar e melhorar unidades
+    ],
     "runic_tower_researches": [],
     "altar_of_heroes_researches": [],
     "items": [
@@ -1409,13 +1456,13 @@
                 }
             ]
         }
-    ], // itens como pedra de carvão, barras de aço, chassi de catapulta, etc
+    ],
     "chest_rewards": [
         {
             "id": 1,
             "name_key": "chest_reward_1_name",
             "name": "PLACEHOLDER",
-            "type": "unit", // unit, item, chest, resource
+            "type": "unit",
             "unit_id": null,
             "item_id": null,
             "chest_id": null,

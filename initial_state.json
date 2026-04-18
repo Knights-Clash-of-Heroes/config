@@ -1,0 +1,52 @@
+{
+    "resources": [
+        {
+            "resource_id": 1,
+            "quantity": 5000
+        },
+        {
+            "resource_id": 2,
+            "quantity": 10
+        },
+        {
+            "resource_id": 3,
+            "quantity": 0
+        },
+        {
+            "resource_id": 4,
+            "quantity": 0
+        },
+        {
+            "resource_id": 5,
+            "quantity": 50
+        },
+        {
+            "resource_id": 6,
+            "quantity": 0
+        },
+        {
+            "resource_id": 7,
+            "quantity": "maximum"
+        },
+        {
+            "resource_id": 8,
+            "quantity": 0
+        },
+        {
+            "resource_id": 9,
+            "quantity": 0
+        },
+        {
+            "resource_id": 10,
+            "quantity": 0
+        }
+    ],
+    "buildings": [
+        {
+            "building_id": 1,
+            "chunk_id": 4,
+            "x": 0,
+            "y": 0
+        }
+    ]
+}
