@@ -115,6 +115,7 @@
             "building_id": 1,
             "category_id": 1,
             "default_limit": 1,
+            "castle_research_id": null,
             "unlocks": [
                 {
                     "level_id": 2,
@@ -194,50 +195,9 @@
             "name_key": "attribute_1_name",
             "description_key": "attribute_1_description",
             "description": "Reduces arrow damage by {percentage}%"
-        },
-        {
-            "id": 2,
-            "attack_type": "magic",
-            "name": "-{percentage}% of Magic Damage",
-            "name_key": "attribute_2_name",
-            "description_key": "attribute_2_description",
-            "description": "Reduces magic damage by {percentage}%"
-        },
-        {
-            "id": 3,
-            "attack_type": "siege",
-            "name": "-{percentage}% of Siege Damage",
-            "name_key": "attribute_3_name",
-            "description_key": "attribute_3_description",
-            "description": "Reduces siege damage by {percentage}%"
-        },
-        {
-            "id": 4,
-            "attack_type": "melee",
-            "name": "+{percentage}% of Damage of Infantry",
-            "name_key": "attribute_4_name",
-            "description_key": "attribute_4_description",
-            "description": "Increases damage of Infantry by {percentage}%"
         }
     ],
-    "unit_upgrades": [
-        {
-            "id": 1,
-            "stats": {
-                "health": null,
-                "attack": null,
-                "initiative": null,
-                "speed": null,
-                "range": null
-            },
-            "attributes": [
-                {
-                    "attribute_type": null,
-                    "percentage": null
-                }
-            ]
-        }
-    ],
+    "unit_upgrades": [],
     "units": [
         {
             "id": 1,
@@ -378,6 +338,95 @@
                 }
             ],
             "upgrade_ids": []
+        },
+        {
+            "id": 5,
+            "name": "Guardsman",
+            "name_key": "unit_5_name",
+            "description_key": "unit_5_description",
+            "description": "GUARDSMAN_DESCRIPTION",
+            "training_time": 7200,
+            "training_cost": [],
+            "type": "on_foot",
+            "attack_type": "melee",
+            "target_type": "single",
+            "target_range": null,
+            "training_building_id": 2,
+            "training_building_min_level": 2,
+            "size": {
+                "width": 1,
+                "height": 1
+            },
+            "stats": {
+                "health": 260,
+                "attack": 50,
+                "initiative": 90,
+                "speed": 4,
+                "range": null
+            },
+            "attributes": [],
+            "upgrade_ids": []
+        },
+        {
+            "id": 6,
+            "name": "Archer",
+            "name_key": "unit_6_name",
+            "description_key": "unit_6_description",
+            "description": "ARCHER_DESCRIPTION",
+            "training_time": 7200,
+            "training_cost": [],
+            "type": "on_foot",
+            "attack_type": "arrow",
+            "target_type": "single",
+            "target_range": 4,
+            "training_building_id": 2,
+            "training_building_min_level": 2,
+            "size": {
+                "width": 1,
+                "height": 1
+            },
+            "stats": {
+                "health": 300,
+                "attack": 60,
+                "initiative": 70,
+                "speed": 3,
+                "range": null
+            },
+            "attributes": [],
+            "upgrade_ids": []
+        },
+        {
+            "id": 7,
+            "name": "Swordmaster",
+            "name_key": "unit_7_name",
+            "description_key": "unit_7_description",
+            "description": "SWORDMASTER_DESCRIPTION",
+            "training_time": 7200,
+            "training_cost": [],
+            "type": "on_foot",
+            "attack_type": "melee",
+            "target_type": "single",
+            "target_range": null,
+            "training_building_id": 2,
+            "training_building_min_level": 2,
+            "size": {
+                "width": 1,
+                "height": 1
+            },
+            "stats": {
+                "health": 330,
+                "attack": 50,
+                "initiative": 80,
+                "speed": 3,
+                "range": null
+            },
+            "attributes": [
+                {
+                    "attribute_id": 2,
+                    "value": 50
+                }
+            ],
+            "upgrade_ids": []
         }
     ],
     "buildings": [
@@ -390,8 +439,8 @@
             "price": null,
             "construction_time": null,
             "size": {
-                "width": 8,
-                "height": 8
+                "width": 6,
+                "height": 6
             },
             "stats": {
                 "health": 240,
@@ -747,6 +796,7 @@
     "kingdom_land_chunks": [
         {
             "id": 1,
+            "is_expansion": false,
             "position": {
                 "x": 1,
                 "y": 1
@@ -755,6 +805,7 @@
         },
         {
             "id": 2,
+            "is_expansion": false,
             "position": {
                 "x": 2,
                 "y": 1
@@ -763,6 +814,7 @@
         },
         {
             "id": 3,
+            "is_expansion": false,
             "position": {
                 "x": 3,
                 "y": 1
@@ -771,6 +823,7 @@
         },
         {
             "id": 4,
+            "is_expansion": false,
             "position": {
                 "x": 1,
                 "y": 2
@@ -779,6 +832,7 @@
         },
         {
             "id": 5,
+            "is_expansion": false,
             "position": {
                 "x": 2,
                 "y": 2
@@ -787,6 +841,7 @@
         },
         {
             "id": 6,
+            "is_expansion": false,
             "position": {
                 "x": 3,
                 "y": 2
@@ -795,6 +850,7 @@
         },
         {
             "id": 7,
+            "is_expansion": false,
             "position": {
                 "x": 1,
                 "y": 3
@@ -803,6 +859,7 @@
         },
         {
             "id": 8,
+            "is_expansion": false,
             "position": {
                 "x": 2,
                 "y": 3
@@ -811,6 +868,7 @@
         },
         {
             "id": 9,
+            "is_expansion": false,
             "position": {
                 "x": 3,
                 "y": 3
@@ -819,6 +877,7 @@
         },
         {
             "id": 10,
+            "is_expansion": true,
             "position": {
                 "x": 0,
                 "y": 0
@@ -833,6 +892,7 @@
         },
         {
             "id": 11,
+            "is_expansion": true,
             "position": {
                 "x": 1,
                 "y": 0
@@ -847,6 +907,7 @@
         },
         {
             "id": 12,
+            "is_expansion": true,
             "position": {
                 "x": 2,
                 "y": 0
@@ -861,6 +922,7 @@
         },
         {
             "id": 13,
+            "is_expansion": true,
             "position": {
                 "x": 3,
                 "y": 0
@@ -875,6 +937,7 @@
         },
         {
             "id": 14,
+            "is_expansion": true,
             "position": {
                 "x": 4,
                 "y": 0
@@ -883,12 +946,13 @@
                 {
                     "type": "resource",
                     "resource_id": 1,
-                    "quantity": 1000
+                    "quantity": 8000
                 }
             ]
         },
         {
             "id": 15,
+            "is_expansion": true,
             "position": {
                 "x": 4,
                 "y": 1
@@ -903,6 +967,7 @@
         },
         {
             "id": 16,
+            "is_expansion": true,
             "position": {
                 "x": 4,
                 "y": 2
@@ -917,6 +982,7 @@
         },
         {
             "id": 17,
+            "is_expansion": true,
             "position": {
                 "x": 4,
                 "y": 3
@@ -931,6 +997,7 @@
         },
         {
             "id": 18,
+            "is_expansion": true,
             "position": {
                 "x": 4,
                 "y": 4
@@ -945,6 +1012,7 @@
         },
         {
             "id": 19,
+            "is_expansion": true,
             "position": {
                 "x": 3,
                 "y": 4
@@ -959,6 +1027,7 @@
         },
         {
             "id": 20,
+            "is_expansion": true,
             "position": {
                 "x": 2,
                 "y": 4
@@ -973,6 +1042,7 @@
         },
         {
             "id": 21,
+            "is_expansion": true,
             "position": {
                 "x": 1,
                 "y": 4
@@ -987,6 +1057,7 @@
         },
         {
             "id": 22,
+            "is_expansion": true,
             "position": {
                 "x": 0,
                 "y": 4
@@ -1001,6 +1072,7 @@
         },
         {
             "id": 23,
+            "is_expansion": true,
             "position": {
                 "x": 0,
                 "y": 3
@@ -1015,6 +1087,7 @@
         },
         {
             "id": 24,
+            "is_expansion": true,
             "position": {
                 "x": 0,
                 "y": 2
@@ -1029,6 +1102,7 @@
         },
         {
             "id": 25,
+            "is_expansion": true,
             "position": {
                 "x": 0,
                 "y": 1
@@ -1051,63 +1125,26 @@
                 "x": 0,
                 "y": 0
             },
-            "is_built": false,
             "reconstruction_price": [
                 {
                     "type": "resource",
                     "resource_id": 1,
-                    "quantity": 500
-                },
-                {
-                    "type": "resource",
-                    "resource_id": 3,
-                    "quantity": 50
+                    "quantity": 0
                 }
-            ]
+            ],
+            "reconstruction_time": 0
         },
         {
             "id": 2,
             "building_id": 14,
-            "chunk_id": 4,
-            "position": {
-                "x": 0,
-                "y": 0
-            },
-            "is_built": false,
             "reconstruction_price": [
                 {
                     "type": "resource",
                     "resource_id": 1,
-                    "quantity": 300
-                },
-                {
-                    "type": "resource",
-                    "resource_id": 2,
-                    "quantity": 100
+                    "quantity": 1500
                 }
-            ]
-        },
-        {
-            "id": 3,
-            "building_id": 6,
-            "chunk_id": 9,
-            "position": {
-                "x": 6,
-                "y": 6
-            },
-            "is_built": false,
-            "reconstruction_price": [
-                {
-                    "type": "resource",
-                    "resource_id": 1,
-                    "quantity": 1000
-                },
-                {
-                    "type": "resource",
-                    "resource_id": 5,
-                    "quantity": 5
-                }
-            ]
+            ],
+            "reconstruction_time": 43200
         }
     ],
     "campaign_nodes": [

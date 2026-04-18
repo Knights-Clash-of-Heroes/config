@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Kingdom Visualizer - Knights: Clash of Heroes</title>
+    <style>
+        body { margin: 0; background-color: #020617; overflow: hidden; font-family: 'Inter', sans-serif; }
+        #ui {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+            color: white;
+            pointer-events: none;
+        }
+        h1 { margin: 0; font-size: 1.5rem; background: linear-gradient(to right, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .legend { margin-top: 10px; font-size: 0.8rem; opacity: 0.8; }
+        .controls-hint { position: absolute; bottom: 20px; width: 100%; text-align: center; color: rgba(255,255,255,0.5); font-size: 0.7rem; pointer-events: none; }
+    </style>
+</head>
+<body>
+    <div id="ui">
+        <h1>Kingdom 3D Render</h1>
+        <div class="legend">
+            Green: Starting Territory<br>
+            Red: Expansion Chunks<br>
+            Orientation: Bottom is North
+        </div>
+    </div>
+    <div class="controls-hint">ROTATE: Left Click | PAN: Right Click | ZOOM: Scroll</div>
+
+    <!-- Three.js CDN -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        // Configuração dos dados
+        const configData = {
+            "chunkSize": 8,
+            "buildingDefs": {
+                "1": { "name": "Citadel", "w": 8, "h": 8, "color": 0xfbbf24 },
+                "3": { "name": "Pavillion", "w": 2, "h": 2, "color": 0x60a5fa },
+                "5": { "name": "Farm", "w": 4, "h": 4, "color": 0x34d399 },
+                "14": { "name": "Market", "w": 5, "h": 5, "color": 0xa855f7 }
+            },
+            "chunks": [
+                { "id": 1, "x": 1, "y": 1 }, { "id": 2, "x": 2, "y": 1 }, { "id": 3, "x": 3, "y": 1 },
+                { "id": 4, "x": 1, "y": 2 }, { "id": 5, "x": 2, "y": 2 }, { "id": 6, "x": 3, "y": 2 },
+                { "id": 7, "x": 1, "y": 3 }, { "id": 8, "x": 2, "y": 3 }, { "id": 9, "x": 3, "y": 3 },
+                { "id": 10, "x": 0, "y": 0 }, { "id": 11, "x": 1, "y": 0 }, { "id": 12, "x": 2, "y": 0 },
+                { "id": 13, "x": 3, "y": 0 }, { "id": 14, "x": 4, "y": 0 }, { "id": 15, "x": 4, "y": 1 },
+                { "id": 16, "x": 4, "y": 2 }, { "id": 17, "x": 4, "y": 3 }, { "id": 18, "x": 4, "y": 4 },
+                { "id": 19, "x": 3, "y": 4 }, { "id": 20, "x": 2, "y": 4 }, { "id": 21, "x": 1, "y": 4 },
+                { "id": 22, "x": 0, "y": 4 }, { "id": 23, "x": 0, "y": 3 }, { "id": 24, "x": 0, "y": 2 },
+                { "id": 25, "x": 0, "y": 1 }
+            ]
+        };
+
+        const initialState = {
+            "buildings": [
+                { "building_id": 1, "chunk_id": 5, "x": 0, "y": 0 },
+                { "building_id": 3, "chunk_id": 4, "x": 5, "y": 6 },
+                { "building_id": 5, "chunk_id": 7, "x": 4, "y": 2 },
+                { "building_id": 14, "chunk_id": 14, "x": 0, "y": 3 }
+            ],
+            "units": [
+                { "unit_id": 1, "chunk_id": 8, "x": 3, "y": 4 },
+                { "unit_id": 1, "chunk_id": 8, "x": 5, "y": 4 },
+                { "unit_id": 1, "chunk_id": 8, "x": 7, "y": 4 }
+            ]
+        };
+
+        // Cena, Câmera e Renderizador
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x020617);
+        scene.fog = new THREE.Fog(0x020617, 50, 200);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        document.body.appendChild(renderer.domElement);
+
+        camera.position.set(60, 60, 100);
+        camera.lookAt(0, 0, 0);
+
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.minDistance = 10;
+        controls.maxDistance = 200;
+
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+        scene.add(ambientLight);
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 1.2);
+        directionalLight.position.set(50, 100, 50);
+        scene.add(directionalLight);
+
+        // Criação dos Chunks
+        const CHUNK_PX_SIZE = 10; 
+        const TILE_SIZE = CHUNK_PX_SIZE / configData.chunkSize;
+        const interactiveObjects = [];
+
+        const chunkGroups = {};
+
+        configData.chunks.forEach(chunk => {
+            const group = new THREE.Group();
+            chunkGroups[chunk.id] = group;
+            
+            const geometry = new THREE.BoxGeometry(CHUNK_PX_SIZE - 0.1, 0.5, CHUNK_PX_SIZE - 0.1);
+            const material = new THREE.MeshPhongMaterial({
+                color: chunk.id <= 9 ? 0x22c55e : 0xef4444, 
+                transparent: true,
+                opacity: 0.1,
+                shininess: 100
+            });
+            const slab = new THREE.Mesh(geometry, material);
+            const worldX = (chunk.x - 2) * CHUNK_PX_SIZE;
+            const worldZ = (chunk.y - 2) * CHUNK_PX_SIZE;
+            
+            slab.userData = { id: chunk.id, gx: chunk.x, gy: chunk.y, worldX, worldZ };
+            group.add(slab);
+            interactiveObjects.push(slab);
+
+            const gridHelper = new THREE.GridHelper(CHUNK_PX_SIZE, configData.chunkSize, 0xffffff, 0x1e293b);
+            gridHelper.position.y = 0.26;
+            gridHelper.material.opacity = 0.1;
+            gridHelper.material.transparent = true;
+            group.add(gridHelper);
+
+            group.position.set(worldX, 0, worldZ);
+            scene.add(group);
+        });
+
+        // Renderiza Assets 3D
+        initialState.buildings.forEach(b => {
+            const def = configData.buildingDefs[b.building_id];
+            if (!def) return;
+            const geom = new THREE.BoxGeometry(def.w * TILE_SIZE - 0.1, 2 + Math.random() * 2, def.h * TILE_SIZE - 0.1);
+            const mat = new THREE.MeshPhongMaterial({ color: def.color, shininess: 100 });
+            const mesh = new THREE.Mesh(geom, mat);
+            
+            // Centraliza no grid do chunk
+            const lx = (b.x + def.w / 2) * TILE_SIZE - (CHUNK_PX_SIZE / 2);
+            const lz = (b.y + def.h / 2) * TILE_SIZE - (CHUNK_PX_SIZE / 2);
+            mesh.position.set(lx, 1.25, lz);
+            chunkGroups[b.chunk_id].add(mesh);
+        });
+
+        initialState.units.forEach(u => {
+            const geom = new THREE.SphereGeometry(TILE_SIZE / 3, 16, 16);
+            const mat = new THREE.MeshPhongMaterial({ color: 0xffffff });
+            const mesh = new THREE.Mesh(geom, mat);
+            
+            const lx = (u.x + 0.5) * TILE_SIZE - (CHUNK_PX_SIZE / 2);
+            const lz = (u.y + 0.5) * TILE_SIZE - (CHUNK_PX_SIZE / 2);
+            mesh.position.set(lx, 0.75, lz);
+            chunkGroups[u.chunk_id].add(mesh);
+        });
+
+        // Raycasting para Hover e Clique
+        const raycaster = new THREE.Raycaster();
+        const mouse = new THREE.Vector2();
+        const tooltip = document.createElement('div');
+        tooltip.style.cssText = 'position:fixed; background:rgba(15,23,42,0.9); color:#fff; padding:10px; border-radius:5px; border:1px solid #38bdf8; pointer-events:none; display:none; font-size:12px; z-index:100; font-family:sans-serif;';
+        document.body.appendChild(tooltip);
+
+        function getTileAtPoint(point, obj) {
+            const localX = point.x - obj.userData.worldX + (CHUNK_PX_SIZE / 2);
+            const localZ = point.z - obj.userData.worldZ + (CHUNK_PX_SIZE / 2);
+            const tileX = Math.floor(localX / TILE_SIZE);
+            const tileY = Math.floor(localZ / TILE_SIZE);
+            return {
+                x: Math.max(0, Math.min(7, tileX)),
+                y: Math.max(0, Math.min(7, tileY))
+            };
+        }
+
+        window.addEventListener('mousemove', (event) => {
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+            raycaster.setFromCamera(mouse, camera);
+            const intersects = raycaster.intersectObjects(interactiveObjects);
+
+            if (intersects.length > 0) {
+                const intersect = intersects[0];
+                const obj = intersect.object;
+                const tile = getTileAtPoint(intersect.point, obj);
+
+                tooltip.style.display = 'block';
+                tooltip.style.left = event.clientX + 15 + 'px';
+                tooltip.style.top = event.clientY + 15 + 'px';
+                tooltip.innerHTML = `
+                    <strong style="color:#38bdf8">Chunk ID: ${obj.userData.id}</strong><br>
+                    Square: [X: ${tile.x}, Y: ${tile.y}]<br>
+                    <small>Click to Copy JSON</small>
+                `;
+            } else {
+                tooltip.style.display = 'none';
+            }
+        });
+
+        window.addEventListener('click', () => {
+            raycaster.setFromCamera(mouse, camera);
+            const intersects = raycaster.intersectObjects(interactiveObjects);
+            if (intersects.length > 0) {
+                const intersect = intersects[0];
+                const tile = getTileAtPoint(intersect.point, intersect.object);
+                const data = `{"chunk_id": ${intersect.object.userData.id}, "x": ${tile.x}, "y": ${tile.y}}`;
+                navigator.clipboard.writeText(data);
+                
+                // Flash visual no console ou som opcional não disponível, vamos apenas confiar no clip
+                console.log("Copied: " + data);
+            }
+        });
+
+        // Eixos de referência
+        const axesHelper = new THREE.AxesHelper(10);
+        scene.add(axesHelper);
+
+        // Animação
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        animate();
+    </script>
+</body>
+</html>
