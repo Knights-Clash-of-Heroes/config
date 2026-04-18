@@ -255,6 +255,8 @@
             ],
             "type": "on_foot",
             "attack_type": "melee",
+            "target_type": "single",
+            "target_range": null,
             "training_building_id": 2,
             "training_building_min_level": 1,
             "size": {
@@ -287,6 +289,8 @@
             ],
             "type": "on_foot",
             "attack_type": "melee",
+            "target_type": "single",
+            "target_range": null,
             "training_building_id": 2,
             "training_building_min_level": 1,
             "size": {
@@ -324,6 +328,8 @@
             ],
             "type": "on_foot",
             "attack_type": "melee",
+            "target_type": "single",
+            "target_range": null,
             "training_building_id": 2,
             "training_building_min_level": 1,
             "size": {
@@ -350,6 +356,8 @@
             "training_cost": null,
             "type": "on_foot",
             "attack_type": "melee",
+            "target_type": "single",
+            "target_range": null,
             "training_building_id": null,
             "training_building_min_level": null,
             "size": {
@@ -563,6 +571,9 @@
             "shop_item_category_id": 3,
             "price": [],
             "construction_time": 0,
+            "attack_type": "arrow",
+            "target_type": "single",
+            "target_range": null,
             "size": {
                 "width": 4,
                 "height": 4
@@ -1192,84 +1203,84 @@
             "id": 5,
             "name_key": "character_5_name",
             "name": "Morgana",
-            "description_key": "character_4_description",
+            "description_key": "character_5_description",
             "description": "MORGANA_DESCRIPTION"
         },
         {
             "id": 6,
-            "name_key": "character_5_name",
+            "name_key": "character_6_name",
             "name": "Lancelas",
-            "description_key": "character_5_description",
+            "description_key": "character_6_description",
             "description": "Darke Champion"
         },
         {
             "id": 7,
-            "name_key": "character_6_name",
+            "name_key": "character_7_name",
             "name": "Swordsman",
-            "description_key": null,
+            "description_key": "character_7_description",
             "description": null
         },
         {
             "id": 8,
-            "name_key": "character_7_name",
+            "name_key": "character_8_name",
             "name": "Peasant",
-            "description_key": "character_7_description",
+            "description_key": "character_8_description",
             "description": "PEASANT_DESCRIPTION"
         },
         {
             "id": 9,
-            "name_key": "character_8_name",
+            "name_key": "character_9_name",
             "name": "Squire",
-            "description_key": "character_8_description",
+            "description_key": "character_9_description",
             "description": "SQUIRE_DESCRIPTION"
         },
         {
             "id": 10,
-            "name_key": "character_9_name",
+            "name_key": "character_10_name",
             "name": "Isolda",
-            "description_key": "character_9_description",
+            "description_key": "character_10_description",
             "description": "Heir to the throne of Albion"
         },
         {
             "id": 11,
-            "name_key": "character_10_name",
+            "name_key": "character_11_name",
             "name": "Archer",
-            "description_key": null,
+            "description_key": "character_11_description",
             "description": null
         },
         {
             "id": 12,
-            "name_key": "character_11_name",
+            "name_key": "character_12_name",
             "name": "Robin",
-            "description_key": "character_11_description",
+            "description_key": "character_12_description",
             "description": "Leader of the Free Archers"
         },
         {
             "id": 13,
-            "name_key": "character_12_name",
+            "name_key": "character_13_name",
             "name": "Mathildegard",
-            "description_key": "character_12_description",
+            "description_key": "character_13_description",
             "description": "Master of swordsplay"
         },
         {
             "id": 14,
-            "name_key": "character_13_name",
+            "name_key": "character_14_name",
             "name": "Dwarf Bomber",
-            "description_key": null,
+            "description_key": "character_14_description",
             "description": null
         },
         {
             "id": 15,
-            "name_key": "character_14_name",
+            "name_key": "character_15_name",
             "name": "Boreas the Herbalist",
-            "description_key": "character_14_description",
+            "description_key": "character_15_description",
             "description": "Master of the Potions and Elixirs"
         },
         {
             "id": 16,
-            "name_key": "character_15_name",
+            "name_key": "character_16_name",
             "name": "Pilpo",
-            "description_key": null,
+            "description_key": "character_16_description",
             "description": null
         }
     ],
