@@ -57,12 +57,6 @@
     "attributes": null,
     "upgrade_ids": [...],
     "castle_research_ids": [...],
-    "passive_production": [
-        {
-            "type": "resource",
-            "resource_id": 1,
-            "quantity": 1
-        }
-    ]
+    "passive_production": null,
 }
 ```

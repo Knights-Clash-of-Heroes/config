@@ -1,5 +1,7 @@
 # Preços e custos
 
+A interface de preço é usada para definir o custo de uma coisa, seja ela uma construção, um item, uma unidade, uma pesquisa, etc.
+
 | Propriedade | Tipo                                   | Descrição                                             |
 | ----------- | -------------------------------------- | ----------------------------------------------------- |
 | type        | [enum:CostType](../enums/cost-type.md) | Tipo do preço                                         |
