@@ -10,6 +10,11 @@ A definição da configuração é um padrão de arquitetura de alguns jogos onl
 - [Melhorias de unidades](./unit-upgrades.md)
 - [Melhorias de construções](./building-upgrades.md)
 - [Pedaços de terra](./land-chunks.md)
+- [Nós Campanha](./campaign-nodes.md)
+- [Missões](./quests.md)
+- [Tarefas de Missão](./quest-tasks.md)
+- [Personagens](./characters.md)
+- [Citações de Campanha](./campaign-quotes.md)
 
 --- 
 
