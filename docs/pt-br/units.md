@@ -7,7 +7,7 @@ Eles podem ser usados tanto nas invasões (ataques, torneios e campanha), quanto
 ## Definição de unidade
   
 | Propriedade                 | Tipo de valor                             | Descrição                                                                                            | Exemplo de valor                                            |
-| --------------------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | 
+| --------------------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
 | id                          | int                                       | Identificador da unidade                                                                             | 1                                                           |
 | name                        | string                                    | Nome da unidade                                                                                      | Homem da milícia                                            |
 | name_key                    | string                                    | Chave que aponta para o nome traduzido da unidade na localização                                     | unit_1_name                                                 |
@@ -23,8 +23,8 @@ Eles podem ser usados tanto nas invasões (ataques, torneios e campanha), quanto
 | occupation                  | int                                       | Espaço de habitação ocupado pela unidade                                                             | 1                                                           |
 | stats                       | [interface:Stats](./interfaces/stats.md)  | Propriedades de combate da unidade, como vida, dano, iniciativa, velocidade e alcance                | [Definição](./interfaces/stats.md#exemplo-de-definição)     |
 | attributes                  | [array:interface:Attribute](./interfaces/attribute.md) | Habilidades passivas e ativas da unidade                                                | [Definição](./interfaces/attribute.md#exemplo-de-definição) |
-| upgrade_ids                 | [array:int]                               | Identificadores das unidades que são upgrades desta unidade                                          | [1, 2, 3]                                                   |
-| arsenal_research_ids        | [array:int]                               | Identificadores das pesquisas que podem ser realizadas nesta unidade                                 | [1, 2, 3]                                                   |
+| upgrade_ids                 | [array:int] \| null                       | Identificadores das unidades que são upgrades desta unidade                                          | [1, 2, 3]                                                   |
+| arsenal_research_ids        | [array:int] \| null                       | Identificadores das pesquisas que podem ser realizadas nesta unidade                                 | [1, 2, 3]                                                   |
 
 ### Exemplo de definição
 
@@ -62,7 +62,7 @@ Eles podem ser usados tanto nas invasões (ataques, torneios e campanha), quanto
             "value": 10
         }
     ],
-    "upgrade_ids": [2, 3, 4],
-    "arsenal_research_ids": [1, 2, 3]
+    "upgrade_ids": [...],
+    "arsenal_research_ids": [...]
 }
 ```

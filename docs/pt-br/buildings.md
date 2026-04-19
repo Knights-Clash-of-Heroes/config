@@ -11,6 +11,9 @@
 | stats               | [interface:Stats](./interfaces/stats.md)               | Propriedades de combate da construção, como vida, dano, iniciativa, velocidade e alcance | [Definição](./interfaces/stats.md#exemplo-de-definição)     |
 | attributes          | [array:interface:Attribute](./interfaces/attribute.md) | Habilidades passivas e ativas da construção                                              | [Definição](./interfaces/attribute.md#exemplo-de-definição) |
 | castle_research_ids | array:int                                              | Identificadores das pesquisas que podem ser realizadas nesta construção                  | [1, 2, 3]                                                   |
+| price               | [array:interface:Price](./interfaces/price.md)         | Custo de construção da construção                                                        | [Definição](./interfaces/price.md#exemplo-de-definição)     |
+| construction_time   | int                                                    | Tempo de construção em segundos                                                          | 300                                                         |
+| upgrade_ids         | array:int                                              | Identificadores das construções que são upgrades desta construção                        | [1, 2, 3]                                                   |
 
 ## Exemplo de definição
 
@@ -51,6 +54,7 @@
         "range": null
     },
     "attributes": null,
-    "castle_research_ids": [1, 2, 3]
+    "upgrade_ids": [...],
+    "castle_research_ids": [...]
 }
 ```

@@ -5,6 +5,9 @@ A definição da configuração é um padrão de arquitetura de alguns jogos onl
 ## Módulos e tabelas
 
 - [Unidades](./units.md)
+- [Construções](./buildings.md)
+- [Aperfeiçoamentos de unidades](./unit-upgrades.md)
+- [Aperfeiçoamentos de construções](./building-upgrades.md)
 
 --- 
 
