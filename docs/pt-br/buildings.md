@@ -14,6 +14,7 @@
 | price               | [array:interface:Price](./interfaces/price.md)         | Custo de construção da construção                                                        | [Definição](./interfaces/price.md#exemplo-de-definição)     |
 | construction_time   | int                                                    | Tempo de construção em segundos                                                          | 300                                                         |
 | upgrade_ids         | array:int                                              | Identificadores das construções que são upgrades desta construção                        | [1, 2, 3]                                                   |
+| passive_production  | [array:interface:ProductionItem](./interfaces/production-item.md) \| null | Produção passiva da construção                                          | [Definição](./interfaces/production-item.md#exemplo-de-definição) |
 
 ## Exemplo de definição
 
@@ -55,6 +56,13 @@
     },
     "attributes": null,
     "upgrade_ids": [...],
-    "castle_research_ids": [...]
+    "castle_research_ids": [...],
+    "passive_production": [
+        {
+            "type": "resource",
+            "resource_id": 1,
+            "quantity": 1
+        }
+    ]
 }
 ```
