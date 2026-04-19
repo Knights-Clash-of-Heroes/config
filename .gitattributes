@@ -1,4 +1,4 @@
 *.js linguist-generated=true
 *.d.ts linguist-generated=true
-*.json linguist-generated=false
-*.md linguist-generated=false
+*.json linguist-detectable=true
+*.md linguist-detectable=true
