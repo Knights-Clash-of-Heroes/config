@@ -4,10 +4,12 @@ A definição da configuração é um padrão de arquitetura de alguns jogos onl
 
 ## Módulos e tabelas
 
+- [Recursos](./resources.md)
 - [Unidades](./units.md)
 - [Construções](./buildings.md)
 - [Melhorias de unidades](./unit-upgrades.md)
 - [Melhorias de construções](./building-upgrades.md)
+- [Pedaços de terra](./land-chunks.md)
 
 --- 
 
