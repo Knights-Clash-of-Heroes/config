@@ -1,5 +1,7 @@
 # Construções
 
+Construções (ou edifícios) são elementos do jogo que podem ser construídos no reino do jogador. Elas podem ser usadas para treinar unidades, defender o seu reino, realizar pesquisas, produzir recursos, etc.
+
 | Propriedade         | Tipo de valor                                          | Descrição                                                                                               | Exemplo de valor                                            |
 | ------------------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
 | id                  | int                                                    | Identificador da construção                                                                             | 4                                                           |
