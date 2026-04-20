@@ -232,7 +232,10 @@
                 "range": null
             },
             "attributes": null,
-            "upgrade_ids": []
+            "upgrade_ids": [],
+            "resurrection_time": 0,
+            "resurrection_timeout": 0,
+            "resurrection_cost": null
         },
         {
             "id": 2,
@@ -271,7 +274,10 @@
                     "value": 50
                 }
             ],
-            "upgrade_ids": []
+            "upgrade_ids": [],
+            "resurrection_time": 0,
+            "resurrection_timeout": 0,
+            "resurrection_cost": null
         },
         {
             "id": 3,
@@ -305,7 +311,10 @@
                 "range": 4
             },
             "attributes": null,
-            "upgrade_ids": []
+            "upgrade_ids": [],
+            "resurrection_time": 0,
+            "resurrection_timeout": 0,
+            "resurrection_cost": null
         },
         {
             "id": 4,
@@ -338,7 +347,10 @@
                     "value": 50
                 }
             ],
-            "upgrade_ids": []
+            "upgrade_ids": [],
+            "resurrection_time": 0,
+            "resurrection_timeout": 0,
+            "resurrection_cost": null
         },
         {
             "id": 5,
@@ -366,7 +378,10 @@
                 "range": null
             },
             "attributes": [],
-            "upgrade_ids": []
+            "upgrade_ids": [],
+            "resurrection_time": 0,
+            "resurrection_timeout": 0,
+            "resurrection_cost": null
         },
         {
             "id": 6,
@@ -394,7 +409,10 @@
                 "range": null
             },
             "attributes": [],
-            "upgrade_ids": []
+            "upgrade_ids": [],
+            "resurrection_time": 0,
+            "resurrection_timeout": 0,
+            "resurrection_cost": null
         },
         {
             "id": 7,
@@ -427,7 +445,10 @@
                     "value": 50
                 }
             ],
-            "upgrade_ids": []
+            "upgrade_ids": [],
+            "resurrection_time": 0,
+            "resurrection_timeout": 0,
+            "resurrection_cost": null
         }
     ],
     "buildings": [
@@ -790,7 +811,95 @@
             "attributes": null
         }
     ],
-    "heroes": [],
+    "heroes": [
+        {
+            "id": 1,
+            "name": "Sir Crashton",
+            "name_key": "hero_1_name",
+            "description_key": "hero_1_description",
+            "description": "Heavily armadured infrontry leader",
+            "type": "on_foot",
+            "attack_type": "melee",
+            "target_type": "single",
+            "target_range": null,
+            "size": {
+                "width": 1,
+                "height": 1
+            },
+            "stats": {
+                "health": 500,
+                "attack": 75,
+                "initiative": 110,
+                "speed": 4,
+                "range": null
+            },
+            "attributes": null,
+            "upgrade_ids": []
+        },
+        {
+            "id": 2,
+            "name": "Sir Galahan",
+            "name_key": "hero_2_name",
+            "description_key": "hero_2_description",
+            "description": "Wise cavalary leader",
+            "type": "mounted",
+            "attack_type": "melee",
+            "target_type": "single",
+            "target_range": null,
+            "size": {
+                "width": 1,
+                "height": 1
+            },
+            "stats": {
+                "health": 450,
+                "attack": 85,
+                "initiative": 120,
+                "speed": 4,
+                "range": null
+            },
+            "attributes": null,
+            "upgrade_ids": []
+        },
+        {
+            "id": 3,
+            "name": "Indgrid",
+            "name_key": "hero_3_name",
+            "description_key": "hero_3_description",
+            "description": "Master of the elements and commander of mages.",
+            "type": "on_foot",
+            "attack_type": "magic",
+            "target_type": "single",
+            "target_range": 3,
+            "size": {
+                "width": 1,
+                "height": 1
+            },
+            "stats": {
+                "health": 350,
+                "attack": 95,
+                "initiative": 100,
+                "speed": 3,
+                "range": 5
+            },
+            "attributes": null,
+            "upgrade_ids": []
+        }
+    ],
+    "hero_upgrades": [
+        {
+            "id": 1,
+            "hero_id": 1,
+            "altar_of_heroes_research_id": 1,
+            "stats": {
+                "health": 500,
+                "attack": 75,
+                "initiative": 110,
+                "speed": 4,
+                "range": null
+            },
+            "attributes": null
+        }
+    ],
     "kingdom_land_chunk_size": {
         "width": 8,
         "height": 8

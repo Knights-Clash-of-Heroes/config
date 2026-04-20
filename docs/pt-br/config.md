@@ -14,6 +14,8 @@ A definição da configuração é um padrão de arquitetura de alguns jogos onl
 - [Missões](./quests.md)
 - [Tarefas de Missão](./quest-tasks.md)
 - [Personagens](./characters.md)
+- [Heróis](./heroes.md)
+- [Melhorias de Heróis](./hero-upgrades.md)
 - [Citações de Campanha](./campaign-quotes.md)
 
 --- 

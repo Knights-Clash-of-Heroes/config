@@ -26,6 +26,10 @@ Eles podem ser usados tanto nas invasões (ataques, torneios e campanha), quanto
 | attributes                  | [array:interface:Attribute](./interfaces/attribute.md) | Habilidades passivas e ativas da unidade                                                | [Definição](./interfaces/attribute.md#exemplo-de-definição) |
 | upgrade_ids                 | [array:int] \| null                       | Identificadores das unidades que são upgrades desta unidade                                          | [1, 2, 3]                                                   |
 | arsenal_research_ids        | [array:int] \| null                       | Identificadores das pesquisas que podem ser realizadas nesta unidade                                 | [1, 2, 3]                                                   |
+| resurrection_time           | int                                       | Tempo de ressurreição em segundos (0 se instantâneo)                                                 | 0                                                           |
+| resurrection_timeout        | int                                       | Tempo limite para ressuscitar a unidade antes que ela seja apagada definitivamente do reino          | 3600                                                        |
+| resurrection_cost           | [array:interface:Price](./interfaces/price.md) \| null | Custo para ressuscitar a unidade                                                                    | [Definição](./interfaces/price.md#exemplo-de-definição)     |
+| inherit_upgrades_from_unit_id | int \| null                             | Identificador de outra unidade para herdar as mesmas melhorias aplicadas a ela. Usado para unidades especiais ou variações que compartilham as melhorias da unidade base. | 1                                                           |
 
 ### Exemplo de definição
 
@@ -65,6 +69,7 @@ Eles podem ser usados tanto nas invasões (ataques, torneios e campanha), quanto
         }
     ],
     "upgrade_ids": [...],
-    "arsenal_research_ids": [...]
+    "arsenal_research_ids": [...],
+    "inherit_upgrades_from_unit_id": null
 }
 ```

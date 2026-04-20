@@ -19,6 +19,7 @@ Construções (ou edifícios) são elementos do jogo que podem ser construídos 
 | construction_time   | int                                                    | Tempo de construção em segundos                                                                         | 300                                                         |
 | upgrade_ids         | array:int                                              | Identificadores das construções que são upgrades desta construção                                       | [1, 2, 3]                                                   |
 | passive_production  | [array:interface:ProductionItem](./interfaces/production-item.md) \| null | Produção passiva da construção                                                 | [Definição](./interfaces/production-item.md#exemplo-de-definição) |
+| inherit_upgrades_from_building_id | int \| null                              | Identificador de outra construção para herdar as mesmas melhorias aplicadas a ela. Usado para edifícios especiais que compartilham as melhorias do edifício base. | 1                                                           |
 
 ## Exemplo de definição
 
@@ -64,5 +65,6 @@ Construções (ou edifícios) são elementos do jogo que podem ser construídos 
     "upgrade_ids": [...],
     "castle_research_ids": [...],
     "passive_production": null,
+    "inherit_upgrades_from_building_id": null
 }
 ```
