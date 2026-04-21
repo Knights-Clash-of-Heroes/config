@@ -44,18 +44,18 @@ Os feitiços são habilidades que podem ser lançadas durante o combate, eles s�
         {
             "effect_id": 1,
             "name": "Tremor",
-            "name_key": "effect_tremor_name",
+            "name_key": "effect_1_name",
             "description": "Dificulta a movimentação e reduz a agilidade.",
-            "description_key": "effect_tremor_desc",
+            "description_key": "effect_1_desc",
             "value": 20,
             "duration": 2
         },
         {
             "effect_id": 2,
             "name": "Poeira Levantada",
-            "name_key": "effect_pollen_name",
+            "name_key": "effect_2_name",
             "description": "A visibilidade na área está reduzida, diminuindo a precisão.",
-            "description_key": "effect_pollen_desc",
+            "description_key": "effect_2_desc",
             "value": -10,
             "duration": 3
         }
