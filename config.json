@@ -197,6 +197,7 @@
             "description": "Reduces arrow damage by {percentage}%"
         }
     ],
+    "effect_types": [],
     "unit_upgrades": [],
     "units": [
         {
@@ -1616,5 +1617,6 @@
                 }
             ]
         }
-    ]
+    ],
+    "parchments": []
 }

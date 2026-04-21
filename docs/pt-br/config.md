@@ -17,6 +17,8 @@ A definição da configuração é um padrão de arquitetura de alguns jogos onl
 - [Heróis](./heroes.md)
 - [Melhorias de Heróis](./hero-upgrades.md)
 - [Citações de Campanha](./campaign-quotes.md)
+- [Runas](./runes.md)
+- [Feitiços](./spells.md)
 
 --- 
 
