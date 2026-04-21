@@ -6,6 +6,8 @@ A definição da configuração é um padrão de arquitetura de alguns jogos onl
 
 ### 1. Reino
 
+O reino é a parte principal do jogo, onde ele pode criar itens, recrutar e posicionar soldados, posicionar suas construções e melhorar tanto as unidades quanto as construções.
+
 #### 1.1 Principal
 
 - [Recursos](./resources.md)
@@ -23,6 +25,8 @@ A definição da configuração é um padrão de arquitetura de alguns jogos onl
 - [Feitiços](./spells.md)
 
 ### 2. Campanha e eventos
+
+A campanha éo modo história do jogo, onde o jogador deve completar missões para avançar na história. Os eventos são eventos baseados em desbloqueio após um nível específico, eventos frequentes e eventos que acontecerão em um período específico. Eles são baseados em nós, cada nó tem uma ou mais missões. Uma missão pode ser uma batalha, um requerimento de coleta de um item ou a cobrança de um recurso para completá-la.
 
 - [Nós Campanha](./campaign-nodes.md)
 - [Missões](./quests.md)
