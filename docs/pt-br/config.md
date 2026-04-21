@@ -2,7 +2,11 @@
 
 A definição da configuração é um padrão de arquitetura de alguns jogos online, então por isso a decisão de refazer este jogo se baseando nisso.
 
-## Módulos e tabelas
+## Módulos
+
+### 1. Reino
+
+#### 1.1 Principal
 
 - [Recursos](./resources.md)
 - [Unidades](./units.md)
@@ -10,15 +14,23 @@ A definição da configuração é um padrão de arquitetura de alguns jogos onl
 - [Melhorias de unidades](./unit-upgrades.md)
 - [Melhorias de construções](./building-upgrades.md)
 - [Pedaços de terra](./land-chunks.md)
+
+#### 1.2 Combate 
+
+- [Heróis](./heroes.md)
+- [Melhorias de Heróis](./hero-upgrades.md)
+- [Runas](./runes.md)
+- [Feitiços](./spells.md)
+
+### 2. Campanha e eventos
+
 - [Nós Campanha](./campaign-nodes.md)
 - [Missões](./quests.md)
 - [Tarefas de Missão](./quest-tasks.md)
 - [Personagens](./characters.md)
-- [Heróis](./heroes.md)
-- [Melhorias de Heróis](./hero-upgrades.md)
 - [Citações de Campanha](./campaign-quotes.md)
-- [Runas](./runes.md)
-- [Feitiços](./spells.md)
+- ~~[Eventos](./events.md)~~ 
+- ~~[Citações de Eventos](./event-quotes.md)~~
 
 --- 
 
