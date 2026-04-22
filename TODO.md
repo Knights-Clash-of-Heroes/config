@@ -1,5 +1,4 @@
-- feitiços, tipo de alvo: único, área, cadeia
-- temos que ter diferentes tipos de aperfeiçoamentos, por arsenal, loja do dragãozinho por cristais 
+- temos que ter diferentes tipos de aperfeiçoamentos, por arsenal custando recursos e itens, loja do dragãozinho custando cristais 
 - tem que ter a posição do nó da campanha no mapa 
 - tem que ter um nível recomendado para completar aqule nó da campanha
 a maioria dos nós precisam que você complete nós anteriores
