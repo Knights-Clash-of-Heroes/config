@@ -8,6 +8,7 @@ Diálogos que ocorrem durante o progresso da campanha. Elas são vinculadas a pe
 | character_id | int | ID do personagem que está falando | 1 |
 | quote | string | O texto do diálogo | "It's quiet as the grave..." |
 | quote_key | string | Chave de tradução para o diálogo | "campaign_quote_1_quote" |
+| requires_confirmation | boolean | Se verdadeiro, o jogo irá aguardar uma confirmação do jogador (clicar no diálogo) para prosseguir | true |
 
 ## Exemplo de definição
 
@@ -16,6 +17,7 @@ Diálogos que ocorrem durante o progresso da campanha. Elas são vinculadas a pe
     "id": 1,
     "character_id": 1,
     "quote": "It's quiet as the grave - no birdsong, no voices... Something is wrong here... Keep alert!",
-    "quote_key": "campaign_quote_1_quote"
+    "quote_key": "campaign_quote_1_quote",
+    "requires_confirmation": true
 }
 ```
