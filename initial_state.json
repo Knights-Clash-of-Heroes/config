@@ -56,8 +56,8 @@
             "chunk_id": 4,
             "direction": "north",
             "position": {
-                "x": 5,
-                "y": 6
+                "x": 3,
+                "y": 4
             }
         },
         {
@@ -65,26 +65,8 @@
             "chunk_id": 7,
             "direction": "north",
             "position": {
-                "x": 4,
+                "x": 5,
                 "y": 2
-            }
-        },
-        {
-            "building_id": 14,
-            "chunk_id": 14,
-            "direction": "north",
-            "position": {
-                "x": 0,
-                "y": 3
-            }
-        },
-        {
-            "building_id": 13,
-            "chunk_id": 10,
-            "direction": "north",
-            "position": {
-                "x": 1,
-                "y": 0
             }
         },
         {
@@ -93,38 +75,46 @@
             "direction": "north",
             "position": {
                 "x": 1,
-                "y": 4
+                "y": 3
             }
         }
     ],
     "kingdom_chunk_ids": [1, 2, 3, 4, 5, 6, 7, 8, 9],
-    "kingdom_buildings": [],
     "units": [
         {
             "unit_id": 1,
             "chunk_id": 8,
             "direction": "north",
             "position": {
+                "x": 3,
+                "y": 4
+            }
+        },
+        {
+            "unit_id": 1,
+            "chunk_id": 8,
+            "direction": "north",
+            "position": {
+                "x": 5,
+                "y": 4
+            }
+        },
+        {
+            "unit_id": 1,
+            "chunk_id": 8,
+            "direction": "north",
+            "position": {
+                "x": 7,
+                "y": 4
+            }
+        },
+        {
+            "unit_id": 5,
+            "chunk_id": 8,
+            "direction": "north",
+            "position": {
                 "x": 2,
-                "y": 4
-            }
-        },
-        {
-            "unit_id": 1,
-            "chunk_id": 8,
-            "direction": "north",
-            "position": {
-                "x": 4,
-                "y": 4
-            }
-        },
-        {
-            "unit_id": 1,
-            "chunk_id": 8,
-            "direction": "north",
-            "position": {
-                "x": 6,
-                "y": 4
+                "y": 0
             }
         },
         {
@@ -137,12 +127,12 @@
             }
         },
         {
-            "unit_id": 5,
-            "chunk_id": 8,
+            "unit_id": 1,
+            "chunk_id": 9,
             "direction": "north",
             "position": {
-                "x": 4,
-                "y": 0
+                "x": 3,
+                "y": 3
             }
         }
     ]

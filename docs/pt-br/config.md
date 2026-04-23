@@ -10,6 +10,7 @@ O reino é a parte principal do jogo, onde ele pode criar itens, recrutar e posi
 
 #### 1.1 Principal
 
+- [Configurações do Reino](./kingdom-settings.md)
 - [Recursos](./resources.md)
 - [Unidades](./units.md)
 - [Construções](./buildings.md)

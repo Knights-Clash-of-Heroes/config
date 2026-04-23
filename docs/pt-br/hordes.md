@@ -28,9 +28,13 @@ As hordas são surgimentos de unidades que podem ser pacíficas ou hostís. Elas
     "units": [
         {
             "unit_id": 5,
-            "position": {
+            "initial_position": {
                 "x": 0,
                 "y": 2
+            },
+            "target_position": {
+                "x": 2,
+                "y": 5
             },
             "custom_stats": {
                 "health": 150,
