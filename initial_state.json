@@ -1,139 +1,151 @@
 {
-    "resources": [
-        {
-            "resource_id": 1,
-            "quantity": 5000
-        },
-        {
-            "resource_id": 2,
-            "quantity": 10
-        },
-        {
-            "resource_id": 3,
-            "quantity": 0
-        },
-        {
-            "resource_id": 4,
-            "quantity": 0
-        },
-        {
-            "resource_id": 5,
-            "quantity": 50
-        },
-        {
-            "resource_id": 6,
-            "quantity": 0
-        },
-        {
-            "resource_id": 7,
-            "quantity": "maximum"
-        },
-        {
-            "resource_id": 8,
-            "quantity": 0
-        },
-        {
-            "resource_id": 9,
-            "quantity": 0
-        },
-        {
-            "resource_id": 10,
-            "quantity": 0
-        }
-    ],
-    "buildings": [
-        {
-            "building_id": 1,
-            "chunk_id": 5,
-            "direction": "north",
-            "position": {
-                "x": 0,
-                "y": 0
+    "kingdom": {
+        "resources": [
+            {
+                "resource_id": 1,
+                "quantity": 5000
+            },
+            {
+                "resource_id": 2,
+                "quantity": 10
+            },
+            {
+                "resource_id": 3,
+                "quantity": 0
+            },
+            {
+                "resource_id": 4,
+                "quantity": 0
+            },
+            {
+                "resource_id": 5,
+                "quantity": 50
+            },
+            {
+                "resource_id": 6,
+                "quantity": 0
+            },
+            {
+                "resource_id": 7,
+                "quantity": "maximum"
+            },
+            {
+                "resource_id": 8,
+                "quantity": 0
+            },
+            {
+                "resource_id": 9,
+                "quantity": 0
+            },
+            {
+                "resource_id": 10,
+                "quantity": 0
             }
-        },
-        {
-            "building_id": 3,
-            "chunk_id": 4,
-            "direction": "north",
-            "position": {
-                "x": 3,
-                "y": 4
+        ],
+        "buildings": [
+            {
+                "building_id": 1,
+                "chunk_id": 5,
+                "direction": "north",
+                "position": {
+                    "x": 0,
+                    "y": 0
+                }
+            },
+            {
+                "building_id": 3,
+                "chunk_id": 4,
+                "direction": "north",
+                "position": {
+                    "x": 3,
+                    "y": 4
+                }
+            },
+            {
+                "building_id": 5,
+                "chunk_id": 7,
+                "direction": "north",
+                "position": {
+                    "x": 5,
+                    "y": 2
+                }
+            },
+            {
+                "building_id": 2,
+                "chunk_id": 6,
+                "direction": "north",
+                "position": {
+                    "x": 1,
+                    "y": 3
+                }
             }
-        },
-        {
-            "building_id": 5,
-            "chunk_id": 7,
-            "direction": "north",
-            "position": {
-                "x": 5,
-                "y": 2
+        ],
+        "kingdom_chunk_ids": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+        ],
+        "units": [
+            {
+                "unit_id": 1,
+                "chunk_id": 8,
+                "direction": "north",
+                "position": {
+                    "x": 3,
+                    "y": 4
+                }
+            },
+            {
+                "unit_id": 1,
+                "chunk_id": 8,
+                "direction": "north",
+                "position": {
+                    "x": 5,
+                    "y": 4
+                }
+            },
+            {
+                "unit_id": 1,
+                "chunk_id": 8,
+                "direction": "north",
+                "position": {
+                    "x": 7,
+                    "y": 4
+                }
+            },
+            {
+                "unit_id": 5,
+                "chunk_id": 8,
+                "direction": "north",
+                "position": {
+                    "x": 2,
+                    "y": 0
+                }
+            },
+            {
+                "unit_id": 5,
+                "chunk_id": 8,
+                "direction": "north",
+                "position": {
+                    "x": 3,
+                    "y": 0
+                }
+            },
+            {
+                "unit_id": 1,
+                "chunk_id": 9,
+                "direction": "north",
+                "position": {
+                    "x": 3,
+                    "y": 3
+                }
             }
-        },
-        {
-            "building_id": 2,
-            "chunk_id": 6,
-            "direction": "north",
-            "position": {
-                "x": 1,
-                "y": 3
-            }
-        }
-    ],
-    "kingdom_chunk_ids": [1, 2, 3, 4, 5, 6, 7, 8, 9],
-    "units": [
-        {
-            "unit_id": 1,
-            "chunk_id": 8,
-            "direction": "north",
-            "position": {
-                "x": 3,
-                "y": 4
-            }
-        },
-        {
-            "unit_id": 1,
-            "chunk_id": 8,
-            "direction": "north",
-            "position": {
-                "x": 5,
-                "y": 4
-            }
-        },
-        {
-            "unit_id": 1,
-            "chunk_id": 8,
-            "direction": "north",
-            "position": {
-                "x": 7,
-                "y": 4
-            }
-        },
-        {
-            "unit_id": 5,
-            "chunk_id": 8,
-            "direction": "north",
-            "position": {
-                "x": 2,
-                "y": 0
-            }
-        },
-        {
-            "unit_id": 5,
-            "chunk_id": 8,
-            "direction": "north",
-            "position": {
-                "x": 3,
-                "y": 0
-            }
-        },
-        {
-            "unit_id": 1,
-            "chunk_id": 9,
-            "direction": "north",
-            "position": {
-                "x": 3,
-                "y": 3
-            }
-        }
-    ]
+        ]
+    }
 }
