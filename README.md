@@ -1,34 +1,59 @@
 # @kcoh/config
 
-Este repositório contém as configurações fundamentais do jogo **Knights: Clash of Heroes (KCOH)**. Ele funciona como a "fonte da verdade" (source of truth) para todos os dados estáticos do jogo, permitindo que servidores e clientes operem sob o mesmo conjunto de regras e definições.
+🇺🇸 English · 🇧🇷 [Português](./README.pt-br.md)
 
-## 🎯 Propósito
+This repository contains the core configuration of the game **Knights: Clash of Heroes (KCOH)**. It works as the "source of truth" for all the static data of the game, allowing servers and clients to operate under the same set of rules and definitions.
 
-O projeto é focado em dados. O arquivo principal é o `config.json`, que deve ser fornecido aos servidores de jogo para que estes, por sua vez, distribuam as configurações para seus respectivos clientes.
+## 🎯 Purpose
 
-- **Para o Jogo**: Define atributos de unidades, custos de construção, níveis, recompensas e muito mais.
-- **Para Servidores**: Atua como um contrato de dados, permitindo que servidores customizados criem suas próprias versões da configuração respeitando o mesmo esquema.
-- **Para Mantenedores**: Oferece ferramentas de validação e documentação para garantir que novas entidades e mudanças de balanceamento não quebrem a integridade do sistema.
+The project is data-focused. The main file is `config.json`, which must be provided to the game servers so that they, in turn, distribute the configuration to their respective clients.
 
-## 🏗️ Estrutura do Repositório
+- **For the Game**: Defines unit attributes, construction costs, levels, rewards and much more.
+- **For Servers**: Acts as a data contract, allowing custom servers to create their own versions of the configuration while respecting the same schema.
+- **For Maintainers**: Provides validation tools and documentation to make sure that new entities and balance changes do not break the integrity of the system.
 
-- **`config.json`**: Contém todos os dados reais do jogo.
-- **`src/`**: Contém o código TypeScript (utilizando **Zod**) responsável por validar o `config.json`. Este código não faz parte da lógica de execução do jogo, apenas garante a integridade dos dados.
-- **`docs/`**: Documentação detalhada que descreve cada interface, enum e estrutura presente na configuração.
+## 🏗️ Repository Structure
 
-## 🛠️ Como Contribuir e Alterar
+- **`config.json`**: Contains all the actual game data.
+- **`initial_state.json`**: The initial kingdom state of a new player (resources, buildings, land chunks and units).
+- **`src/schemas/`**: [Zod](https://zod.dev) schemas describing the format of `config.json` and `initial_state.json`.
+- **`src/validation.ts`**: Schema validation and referential integrity checks (ids pointing to entities that do not exist).
+- **`src/validate.ts`**: Command-line entry point that validates both JSON files.
+- **`docs/`**: Detailed documentation describing every interface, enum and structure present in the configuration, in [English](./docs/en/config.md) and [Portuguese](./docs/pt-br/config.md).
 
-1. **Alteração de Dados**: As mudanças de balanceamento e novas entidades devem ser adicionadas diretamente no `config.json`.
-2. **Validação**: Após alterar o JSON, execute os scripts de validação (definidos no `package.json`) para garantir que o arquivo ainda respeita os esquemas definidos em `src/schemas`.
-3. **Documentação**: Sempre que uma nova propriedade for adicionada ou uma interface for alterada, a documentação em `docs/pt-br` deve ser atualizada para refletir a mudança.
+## 🛠️ How to Contribute and Change
 
-## 📄 Documentação Técnica
+1. **Changing Data**: Balance changes and new entities must be added directly to `config.json` (or `initial_state.json`).
+2. **Validation**: After changing the JSON, run `npm run validate`. The command checks that the files respect the schemas in `src/schemas` and that every referenced id exists.
+3. **Documentation**: Whenever a new property is added or an interface is changed, the documentation in `docs/en` and `docs/pt-br` must be updated to reflect the change.
 
-A documentação detalhada das tabelas e módulos pode ser acessada em:
-👉 [**Página Principal da Documentação em Português**](./docs/pt-br/config.md)
+### Scripts
+
+| Command                | Description                                                  |
+| ---------------------- | ------------------------------------------------------------ |
+| `npm run validate`     | Validates `config.json` and `initial_state.json`             |
+| `npm run lint`         | Runs ESLint and fixes what it can                            |
+| `npm run lint:check`   | Runs ESLint without modifying files                          |
+| `npm run format`       | Formats the code with Prettier                               |
+| `npm run format:check` | Checks formatting without modifying files                    |
+| `npm run typecheck`    | Type-checks the code with TypeScript                         |
+| `npm test`             | Runs the tests (Vitest)                                      |
+
+### Automation
+
+- **Pre-commit** ([Husky](https://typicode.github.io/husky) + [lint-staged](https://github.com/lint-staged/lint-staged)): formats and lints the staged `.ts` files and validates the JSON files before every commit.
+- **GitHub Actions** (`.github/workflows/validate.yml`): on every push to `main` and on every pull request, validates the JSON files and runs formatting, lint, typecheck and tests.
+- **Dependabot** (`.github/dependabot.yml`): checks weekly for updates to npm dependencies and GitHub Actions.
+
+## 📄 Technical Documentation
+
+The detailed documentation of the tables and modules can be found at:
+
+- 👉 [**Main Documentation Page in English**](./docs/en/config.md)
+- 👉 [**Página Principal da Documentação em Português**](./docs/pt-br/config.md)
 
 ## ⚠️ Disclaimer
 
-Este projeto é um trabalho independente e não tem afiliação com a Playkot. Ele é totalmente **open-source** e **não visa o lucro**.
+This project is an independent work and has no affiliation with Playkot. It is fully **open-source** and **not-for-profit**.
 
-Este repositório foi criado por fãs com o objetivo de manter um legado e aprofundar conhecimentos em desenvolvimento de jogos. O projeto explora desafios técnicos reais de arquitetura, design patterns, WebSockets e sistemas orientados a dados. Não existe nenhuma intenção de prejudicar a Playkot ou os detentores originais dos direitos; trata-se de um tributo tecnológico e educacional.
+This repository was created by fans with the goal of preserving a legacy and deepening knowledge of game development. The project explores real technical challenges of architecture, design patterns, WebSockets and data-driven systems. There is no intention whatsoever of harming Playkot or the original rights holders; it is a technological and educational tribute.
