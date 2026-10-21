@@ -1,0 +1,34 @@
+name: Validate
+
+on:
+    push:
+        branches: [main]
+    pull_request:
+
+jobs:
+    validate-data:
+        name: Validate config.json and initial_state.json
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 22
+                  cache: npm
+            - run: npm ci
+            - run: npm run validate
+
+    quality:
+        name: Lint, format, typecheck and test
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 22
+                  cache: npm
+            - run: npm ci
+            - run: npm run format:check
+            - run: npm run lint:check
+            - run: npm run typecheck
+            - run: npm test -- --run
