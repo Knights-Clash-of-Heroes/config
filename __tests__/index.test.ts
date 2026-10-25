@@ -45,14 +45,21 @@ describe("initial_state.json", () => {
         expect(initialStateSchema.safeParse(raw).success).toBe(true)
     })
 
-    test("only references existing config entities", () => {
+    test("only references mapped, existing config entities", () => {
         if (!config.success) throw new Error("config.json is invalid")
         expect(validateInitialState(raw, config.data).success).toBe(true)
     })
 
-    test("rejects an invalid direction", () => {
-        const state = structuredClone(raw) as { kingdom: { buildings: { direction: string }[] } }
-        state.kingdom.buildings[0].direction = "up"
+    test("rejects an entity whose sceneId does not match its key", () => {
+        const state = structuredClone(raw) as { entities: Record<string, { sceneId: number }> }
+        state.entities["103"].sceneId = 999
         expect(initialStateSchema.safeParse(state).success).toBe(false)
+    })
+
+    test("rejects an unknown original entity id", () => {
+        if (!config.success) throw new Error("config.json is invalid")
+        const state = structuredClone(raw) as { entities: Record<string, { id: number }> }
+        state.entities["103"].id = 1
+        expect(validateInitialState(state, config.data).success).toBe(false)
     })
 })

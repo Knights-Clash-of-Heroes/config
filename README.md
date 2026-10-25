@@ -5,7 +5,7 @@
 This repository contains the core configuration of the game **Knights: Clash of Heroes (KCOH)**. It works as the "source of truth" for all the static data of the game, allowing servers and clients to operate under the same set of rules and definitions.
 
 > [!WARNING]
-> **`initial_state.json` is incompatible with the original game.** Its format was designed from scratch, and the developers only now found the original game files, almost 5 years after the game shut down. The original client does not consume this format: it receives a block-based `initialize` response from the server. Treat the file as a design draft until it is migrated. Details in [docs/en/initial-state.md](./docs/en/initial-state.md).
+> **`initial_state.json` uses ids of the original game, which are not ids of `config.json`.** The file follows the original game format (the developers only now found the original files, almost 5 years after the game shut down), but `config.json` was written before that and has its own ids. A small mapping table bridges them for the initial city. Details in [docs/en/initial-state.md](./docs/en/initial-state.md).
 
 ## 🎯 Purpose
 
@@ -18,7 +18,7 @@ The project is data-focused. The main file is `config.json`, which must be provi
 ## 🏗️ Repository Structure
 
 - **`config.json`**: Contains all the actual game data.
-- **`initial_state.json`**: The initial kingdom state of a new player (resources, buildings, land chunks and units). ⚠️ Legacy draft format, incompatible with the original game (see the warning above).
+- **`initial_state.json`**: The initial kingdom state of a new player (starting resources and the initial city). Original game format; its ids differ from `config.json` (see the warning above).
 - **`src/schemas/`**: [Zod](https://zod.dev) schemas describing the format of `config.json` and `initial_state.json`.
 - **`src/validation.ts`**: Schema validation and referential integrity checks (ids pointing to entities that do not exist).
 - **`src/validate.ts`**: Command-line entry point that validates both JSON files.

@@ -5,7 +5,7 @@
 Este repositório contém as configurações fundamentais do jogo **Knights: Clash of Heroes (KCOH)**. Ele funciona como a "fonte da verdade" (source of truth) para todos os dados estáticos do jogo, permitindo que servidores e clientes operem sob o mesmo conjunto de regras e definições.
 
 > [!WARNING]
-> **O `initial_state.json` é incompatível com o jogo original.** O formato dele foi desenhado do zero, e os desenvolvedores só agora encontraram os arquivos originais do jogo, quase 5 anos depois do fim dele. O cliente original não consome este formato: ele recebe do servidor uma resposta `initialize` organizada em blocos. Trate o arquivo como um rascunho de projeto até que ele seja migrado. Detalhes em [docs/pt-br/initial-state.md](./docs/pt-br/initial-state.md).
+> **O `initial_state.json` usa ids do jogo original, que não são ids do `config.json`.** O arquivo segue o formato do jogo original (os desenvolvedores só agora encontraram os arquivos originais, quase 5 anos depois do fim do jogo), mas o `config.json` foi escrito antes disso e tem ids próprios. Uma pequena tabela de mapeamento faz a ponte para a cidade inicial. Detalhes em [docs/pt-br/initial-state.md](./docs/pt-br/initial-state.md).
 
 ## 🎯 Propósito
 
@@ -18,7 +18,7 @@ O projeto é focado em dados. O arquivo principal é o `config.json`, que deve s
 ## 🏗️ Estrutura do Repositório
 
 - **`config.json`**: Contém todos os dados reais do jogo.
-- **`initial_state.json`**: Estado inicial do reino de um novo jogador (recursos, construções, terrenos e unidades). ⚠️ Formato de rascunho legado, incompatível com o jogo original (veja o aviso acima).
+- **`initial_state.json`**: Estado inicial do reino de um novo jogador (recursos iniciais e a cidade inicial). Formato do jogo original; os ids são diferentes dos do `config.json` (veja o aviso acima).
 - **`src/schemas/`**: Schemas [Zod](https://zod.dev) que descrevem o formato de `config.json` e `initial_state.json`.
 - **`src/validation.ts`**: Validação dos schemas e checagem de integridade referencial (ids que apontam para entidades inexistentes).
 - **`src/validate.ts`**: Comando de linha que valida os dois arquivos JSON.

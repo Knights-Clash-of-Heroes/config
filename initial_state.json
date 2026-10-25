@@ -1,151 +1,88 @@
 {
-    "kingdom": {
-        "resources": [
-            {
-                "resource_id": 1,
-                "quantity": 5000
-            },
-            {
-                "resource_id": 2,
-                "quantity": 10
-            },
-            {
-                "resource_id": 3,
-                "quantity": 0
-            },
-            {
-                "resource_id": 4,
-                "quantity": 0
-            },
-            {
-                "resource_id": 5,
-                "quantity": 50
-            },
-            {
-                "resource_id": 6,
-                "quantity": 0
-            },
-            {
-                "resource_id": 7,
-                "quantity": "maximum"
-            },
-            {
-                "resource_id": 8,
-                "quantity": 0
-            },
-            {
-                "resource_id": 9,
-                "quantity": 0
-            },
-            {
-                "resource_id": 10,
-                "quantity": 0
-            }
-        ],
-        "buildings": [
-            {
-                "building_id": 1,
-                "chunk_id": 5,
-                "direction": "north",
-                "position": {
-                    "x": 0,
-                    "y": 0
-                }
-            },
-            {
-                "building_id": 3,
-                "chunk_id": 4,
-                "direction": "north",
-                "position": {
-                    "x": 3,
-                    "y": 4
-                }
-            },
-            {
-                "building_id": 5,
-                "chunk_id": 7,
-                "direction": "north",
-                "position": {
-                    "x": 5,
-                    "y": 2
-                }
-            },
-            {
-                "building_id": 2,
-                "chunk_id": 6,
-                "direction": "north",
-                "position": {
-                    "x": 1,
-                    "y": 3
-                }
-            }
-        ],
-        "kingdom_chunk_ids": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            8,
-            9
-        ],
-        "units": [
-            {
-                "unit_id": 1,
-                "chunk_id": 8,
-                "direction": "north",
-                "position": {
-                    "x": 3,
-                    "y": 4
-                }
-            },
-            {
-                "unit_id": 1,
-                "chunk_id": 8,
-                "direction": "north",
-                "position": {
-                    "x": 5,
-                    "y": 4
-                }
-            },
-            {
-                "unit_id": 1,
-                "chunk_id": 8,
-                "direction": "north",
-                "position": {
-                    "x": 7,
-                    "y": 4
-                }
-            },
-            {
-                "unit_id": 5,
-                "chunk_id": 8,
-                "direction": "north",
-                "position": {
-                    "x": 2,
-                    "y": 0
-                }
-            },
-            {
-                "unit_id": 5,
-                "chunk_id": 8,
-                "direction": "north",
-                "position": {
-                    "x": 3,
-                    "y": 0
-                }
-            },
-            {
-                "unit_id": 1,
-                "chunk_id": 9,
-                "direction": "north",
-                "position": {
-                    "x": 3,
-                    "y": 3
-                }
-            }
-        ]
+    "player": {
+        "level": 1,
+        "experience": 0,
+        "money": 5000,
+        "cash": 10,
+        "wood": 50,
+        "stone": 0,
+        "iron": 0
+    },
+    "entities": {
+        "103": {
+            "id": 1212037112,
+            "sceneId": 103,
+            "owner": 3,
+            "x": 9,
+            "y": -16,
+            "dir": 0
+        },
+        "828": {
+            "id": 490400668,
+            "sceneId": 828,
+            "owner": 1,
+            "x": 15,
+            "y": -4,
+            "dir": 0
+        },
+        "831": {
+            "id": 965182906,
+            "sceneId": 831,
+            "owner": 1,
+            "x": 12,
+            "y": 2,
+            "dir": 6
+        },
+        "832": {
+            "id": 793331619,
+            "sceneId": 832,
+            "owner": 1,
+            "x": 19,
+            "y": 2,
+            "dir": 0
+        },
+        "833": {
+            "id": 793331619,
+            "sceneId": 833,
+            "owner": 1,
+            "x": 17,
+            "y": 2,
+            "dir": 0
+        },
+        "834": {
+            "id": 793331619,
+            "sceneId": 834,
+            "owner": 1,
+            "x": 15,
+            "y": 2,
+            "dir": 0
+        },
+        "835": {
+            "id": 335153735,
+            "sceneId": 835,
+            "owner": 1,
+            "x": 20,
+            "y": -3,
+            "dir": 0
+        },
+        "836": {
+            "id": 1095215970,
+            "sceneId": 836,
+            "owner": 3,
+            "x": 20,
+            "y": -14,
+            "dir": 0
+        },
+        "837": {
+            "id": 482206421,
+            "sceneId": 837,
+            "owner": 1,
+            "x": 10,
+            "y": -2,
+            "dir": 0
+        }
+    },
+    "options": {
+        "landLimit": 10
     }
 }

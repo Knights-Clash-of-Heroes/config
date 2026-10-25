@@ -2,6 +2,7 @@ import { z } from "zod"
 
 import { InitialState, initialStateSchema } from "./schemas/initial-state"
 import { Config, configSchema } from "./schemas/config"
+import { originalEntityIds } from "./original-ids"
 
 export type ValidationResult<T> = { success: true; data: T; warnings: string[] } | { success: false; errors: string[] }
 
@@ -134,34 +135,25 @@ export function checkConfigReferences(config: Config): { errors: string[]; warni
 }
 
 /**
- * Checks that the initial state only references entities that exist in `config`.
+ * Checks that every entity of the initial state is a known original entity and that the config entity it maps
+ * to (see `originalEntityIds`) exists in `config`.
  */
 export function checkInitialStateReferences(state: InitialState, config: Config): string[] {
     const errors: string[] = []
-    const resources = idsOf(config.resources)
-    const buildings = idsOf(config.buildings)
-    const units = idsOf(config.units)
-    const chunks = idsOf(config.kingdom_land_chunks)
-    const owned = new Set(state.kingdom.kingdom_chunk_ids)
+    const ids = { building: idsOf(config.buildings), unit: idsOf(config.units) }
 
-    const check = (set: Set<number>, id: number, path: string, target: string) => {
-        if (!set.has(id)) errors.push(`${path}: unknown ${target} id ${id}`)
+    for (const [key, entity] of Object.entries(state.entities)) {
+        const mapping = originalEntityIds[entity.id]
+        const path = `entities.${key}.id`
+
+        if (!mapping) {
+            errors.push(`${path}: unknown original entity id ${entity.id}`)
+        } else if (!ids[mapping.kind].has(mapping.configId)) {
+            errors.push(
+                `${path}: ${mapping.name} maps to ${mapping.kind} ${mapping.configId}, which is not in config.json`,
+            )
+        }
     }
-
-    state.kingdom.resources.forEach((entry, i) =>
-        check(resources, entry.resource_id, `kingdom.resources[${i}].resource_id`, "resource"),
-    )
-    state.kingdom.kingdom_chunk_ids.forEach((id, i) =>
-        check(chunks, id, `kingdom.kingdom_chunk_ids[${i}]`, "land chunk"),
-    )
-    state.kingdom.buildings.forEach((entry, i) => {
-        check(buildings, entry.building_id, `kingdom.buildings[${i}].building_id`, "building")
-        check(owned, entry.chunk_id, `kingdom.buildings[${i}].chunk_id`, "owned land chunk")
-    })
-    state.kingdom.units.forEach((entry, i) => {
-        check(units, entry.unit_id, `kingdom.units[${i}].unit_id`, "unit")
-        check(owned, entry.chunk_id, `kingdom.units[${i}].chunk_id`, "owned land chunk")
-    })
 
     return errors
 }

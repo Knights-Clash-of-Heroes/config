@@ -1,72 +1,76 @@
 # Initial State
 
+`initial_state.json` describes the kingdom of a brand-new player. It now follows the **format of the original game**: the same shape the original server sent in its `initialize` response (JSON, like the rest of the original data; the only XML files of the original game are `client_config`, `server_config`, `levels` and `billing`, none of which holds the initial state).
+
 > [!WARNING]
-> **The format of `initial_state.json` in this repository is incompatible with the original game.**
+> **The ids in this file are original game ids, which do not exist in `config.json`.**
 >
-> It was designed from scratch, before the original game files were available, and is modeled after `config.json` (ids pointing into the config tables, `chunk_id` + `position` placement). The developers have only now found the original game files, almost 5 years after the game shut down, and the original client does **not** consume this format. The original client is fed by the server's `initialize` response, which has a different, block-based shape (see [Original format](#original-format-found-in-the-client)).
->
-> Until the file is migrated, treat it as a **design draft of a new player's kingdom**, not as a drop-in replacement for what the original client expects. A server that talks to the original client must translate it into the `initialize` blocks described below.
+> `config.json` was written before the original game files were found (the developers only found them now, almost 5 years after the game shut down) and uses its own sequential ids. The original game identifies every building and unit by an id of its own database (for example `490400668` for the Castle). The two id spaces are incompatible. This repository bridges them with a small mapping table, [`originalEntityIds`](../../src/original-ids.ts), for the entities of the initial city only. Everything outside that table cannot be cross-checked yet.
 
-## Current format (legacy draft)
+The previous format (`kingdom.resources`, `kingdom.buildings`, `kingdom.units` with `chunk_id` + `position`) was a design draft and was removed; it is still in the git history.
 
-This is what `initial_state.json` and the `initialStateSchema` in `src/schemas/initial-state.ts` currently describe. All objects are strict: unknown properties fail validation.
+## Format
 
-| Property                   | Type                 | Description                                                            |
-| -------------------------- | -------------------- | ---------------------------------------------------------------------- |
-| kingdom.resources          | Resource[]           | Starting quantity per resource (`resource_id`, `quantity`).            |
-| kingdom.buildings          | PlacedBuilding[]     | Buildings placed in the kingdom (`building_id` + placement).           |
-| kingdom.kingdom_chunk_ids  | int[]                | Land chunks owned by the kingdom. Placements may only use these.       |
-| kingdom.units              | PlacedUnit[]         | Units placed in the kingdom (`unit_id` + placement).                   |
+| Property  | Type                       | Source               | Description                                                  |
+| --------- | -------------------------- | -------------------- | ------------------------------------------------------------ |
+| player    | Player                     | estimated            | Starting level and resources.                                |
+| entities  | map `sceneId` → Entity     | **original (`map`)** | The initial city: buildings and units already placed.        |
+| options   | `{ landLimit }`            | **original (`map`)** | `landLimit` is the number of land chunks the player can own. |
 
-Placement is `chunk_id`, `direction` (see [Direction](./enums/direction.md)) and `position` (see [Position](./interfaces/position.md)). `quantity` is a number or the string `"maximum"`.
+### Player
+
+| Property   | Type | Description                  |
+| ---------- | ---- | ---------------------------- |
+| level      | int  | Starting level.              |
+| experience | int  | Starting experience.         |
+| money      | int  | Gold.                        |
+| cash       | int  | Crystals (premium currency). |
+| wood       | int  | Wood.                        |
+| stone      | int  | Stone.                       |
+| iron       | int  | Iron.                        |
+
+Energy is not stored: the original game starts it at its maximum, which the server computes.
+
+### Entity
+
+Exactly the object the original client merges into its world (`WorldManageUtils.mergeMapData`).
+
+| Property | Type | Description                                                                                       |
+| -------- | ---- | ------------------------------------------------------------------------------------------------- |
+| id       | int  | Id of the entity in the **original** database. See [the mapping](#original-id-mapping).           |
+| sceneId  | int  | Unique id of this placed object. It must equal the key of the entry in `entities`.                |
+| owner    | int  | Owner code used by the original map (`1` for the player's own objects, `3` for the Altar and Market). The meaning of `3` is not confirmed. |
+| x, y     | num  | Position on the city grid.                                                                        |
+| dir      | int  | Orientation code of the original client (`0` or `6` in the initial city).                         |
+
+## Original id mapping
+
+| Original id  | Original name (Russian) | Name        | Config entity            | Certain |
+| ------------ | ----------------------- | ----------- | ------------------------ | ------- |
+| `490400668`  | Замок                   | Castle      | building `1` (Citadel)   | yes     |
+| `335153735`  | Казарма                 | Barracks    | building `2`             | yes     |
+| `482206421`  | Палатка                 | Tent        | building `3` (Pavillion) | **no**, matched by name only |
+| `965182906`  | Ферма                   | Farm        | building `5`             | yes     |
+| `1212037112` | Алтарь героев           | Altar of Heroes | building `13`        | yes     |
+| `1095215970` | Рынок                   | Market      | building `14`            | yes     |
+| `793331619`  | Grunt: Копейщик 1       | Pikeman     | unit `1` (Militiaman)    | yes     |
+
+`npm run validate` fails if an entity uses an original id that is not in this table, or if the config entity it maps to does not exist in `config.json`.
+
+## What is verified and what is not
+
+- **Verified (read from the recovered `map` file):** the 9 entities of the initial city (Altar, Castle, Farm, three Pikemen, Barracks, Market, Tent), their positions and `landLimit` `10`.
+- **Estimated:** everything in `player`. The values come from the previous draft of this file; the original starting values live in `server_config`, which was **not recovered**. Do not treat them as original.
+- **Not covered yet:** the other blocks of the original `initialize` response (`storage`, `playerStats`, `inventory`, `unlocks`, `heroes`, `quests`, ...). The client reads them from the server; see `recovery/PROTOCOLO.md` in the main workspace. They are runtime state of a player, not part of a static starting file, and the server builds them.
+
+## Example
 
 ```json
 {
-    "kingdom": {
-        "resources": [{ "resource_id": 1, "quantity": 5000 }],
-        "buildings": [{ "building_id": 1, "chunk_id": 5, "direction": "north", "position": { "x": 0, "y": 0 } }],
-        "kingdom_chunk_ids": [1, 2, 3],
-        "units": [{ "unit_id": 1, "chunk_id": 8, "direction": "north", "position": { "x": 3, "y": 4 } }]
-    }
+    "player": { "level": 1, "experience": 0, "money": 5000, "cash": 10, "wood": 50, "stone": 0, "iron": 0 },
+    "entities": {
+        "828": { "id": 490400668, "sceneId": 828, "owner": 1, "x": 15, "y": -4, "dir": 0 }
+    },
+    "options": { "landLimit": 10 }
 }
 ```
-
-`npm run validate` still checks this format, including that every referenced id exists in `config.json`.
-
-## Original format (found in the client)
-
-The original client never reads a "kingdom" document. It receives a **partial, block-based JSON object** from the server and merges each block into its local state (`economics/GlobalResponseParser.as` in the decompiled client). The response to `initialize` can carry every block below; later responses carry only the blocks that changed.
-
-| Block                | Shape (as read by the client)                                                      | Notes                                                           |
-| -------------------- | ---------------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| `player`             | `{ player_id, sync, level, energy, energyRestore, adInfo, ...resource fields }` | `player_id` is required and becomes the game id (`gid`).        |
-| `storage`            | `{ wood, stone, iron, population }`                                                | Resource storage, flat numbers.                                 |
-| `playerStats`        | free-form object; only keys that exist on the client class are applied             | Fields such as `day` and `dayHourReset` are used by the client (see `PlayerStats.as`).  |
-| `inventory`          | `{ "<item id>": quantity }`                                                        | A quantity of `0` removes the item.                             |
-| `recipes`            | map keyed by id                                                                    | Player recipes.                                                 |
-| `unlocks`            | map keyed by id                                                                    | An id present in the map means unlocked.                        |
-| `researches`         | map keyed by id                                                                    |                                                                 |
-| `missions`, `pveMissions` | map keyed by id                                                               |                                                                 |
-| `heroes`             | `{ "<hero id>": { ... } }`                                                         | Each entry is loaded into a hero info object.                   |
-| `deadUnits`, `interaction`, `globalRecipes`, `payments`, `paymentsLog`, `modules`, `corovan`, `itemParts`, `clan`, `boosters`, `gwmap`, `mercenaries`, `runes` | block-specific | Not yet mapped in this repository.       |
-| `entityModified`     | patch applied over the client's local entity database                              |                                                                 |
-
-Blocks that only appear in the `initialize` response: `clientVars`, `settings`, `dailyBonus.day`, `new_player`, `maintenance`, `quests`, `obstacles`.
-
-Key differences from the legacy draft:
-
-- Resources are **named fields** (`money`, `cash`, `wood`, `stone`, `iron`, `energy`, `population`), not `resource_id` entries.
-- Collections are **maps keyed by id**, not arrays of objects.
-- The city is built from the client's local map data merged with the `initialize` data, not from `chunk_id` + `position` lists in the response.
-- Nothing is expressed as `"maximum"`; the server sends concrete numbers.
-
-### What is still unknown
-
-The internal schema of most blocks and how city entities (buildings, units) are placed inside `initialize` are **not yet mapped**. They live in the `loadFromObject` / `load` methods of the decompiled client classes. Starting values (level, resources, population) were never found; the ones used by the reference server are estimates. Do not assume the numbers in `initial_state.json` are original.
-
-## Migration plan
-
-1. Map each block's schema from the decompiled client and add a Zod schema per block.
-2. Replace `initial_state.json` with the block-based format (or add a converter from the legacy draft to the blocks).
-3. Update `src/validation.ts` so referential integrity checks follow the new shape.
-4. Remove the warning above once the file matches the original format.
