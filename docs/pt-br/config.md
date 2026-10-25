@@ -22,6 +22,7 @@ O reino é a parte principal do jogo, onde ele pode criar itens, recrutar e posi
 - [Melhorias de unidades](./unit-upgrades.md)
 - [Melhorias de construções](./building-upgrades.md)
 - [Pedaços de terra](./land-chunks.md)
+- [Estado Inicial](./initial-state.md) (⚠️ incompatível com o formato do jogo original)
 
 #### 1.2 Combate 
 

@@ -1,8 +1,11 @@
 # @kcoh/config
 
-🇺🇸 [English](./README.md) · 🇧🇷 Português
+🇺🇸 [English](./README.md) · 🇧🇷 Português · 🇷🇺 [Русский](./README.ru.md)
 
 Este repositório contém as configurações fundamentais do jogo **Knights: Clash of Heroes (KCOH)**. Ele funciona como a "fonte da verdade" (source of truth) para todos os dados estáticos do jogo, permitindo que servidores e clientes operem sob o mesmo conjunto de regras e definições.
+
+> [!WARNING]
+> **O `initial_state.json` é incompatível com o jogo original.** O formato dele foi desenhado do zero, e os desenvolvedores só agora encontraram os arquivos originais do jogo, quase 5 anos depois do fim dele. O cliente original não consome este formato: ele recebe do servidor uma resposta `initialize` organizada em blocos. Trate o arquivo como um rascunho de projeto até que ele seja migrado. Detalhes em [docs/pt-br/initial-state.md](./docs/pt-br/initial-state.md).
 
 ## 🎯 Propósito
 
@@ -15,17 +18,17 @@ O projeto é focado em dados. O arquivo principal é o `config.json`, que deve s
 ## 🏗️ Estrutura do Repositório
 
 - **`config.json`**: Contém todos os dados reais do jogo.
-- **`initial_state.json`**: Estado inicial do reino de um novo jogador (recursos, construções, terrenos e unidades).
+- **`initial_state.json`**: Estado inicial do reino de um novo jogador (recursos, construções, terrenos e unidades). ⚠️ Formato de rascunho legado, incompatível com o jogo original (veja o aviso acima).
 - **`src/schemas/`**: Schemas [Zod](https://zod.dev) que descrevem o formato de `config.json` e `initial_state.json`.
 - **`src/validation.ts`**: Validação dos schemas e checagem de integridade referencial (ids que apontam para entidades inexistentes).
 - **`src/validate.ts`**: Comando de linha que valida os dois arquivos JSON.
-- **`docs/`**: Documentação detalhada que descreve cada interface, enum e estrutura presente na configuração, em [português](./docs/pt-br/config.md) e [inglês](./docs/en/config.md).
+- **`docs/`**: Documentação detalhada que descreve cada interface, enum e estrutura presente na configuração, em [português](./docs/pt-br/config.md), [inglês](./docs/en/config.md) e [russo](./docs/ru/config.md).
 
 ## 🛠️ Como Contribuir e Alterar
 
 1. **Alteração de Dados**: As mudanças de balanceamento e novas entidades devem ser adicionadas diretamente no `config.json` (ou no `initial_state.json`).
 2. **Validação**: Após alterar o JSON, execute `npm run validate`. O comando verifica se os arquivos respeitam os schemas de `src/schemas` e se todos os ids referenciados existem.
-3. **Documentação**: Sempre que uma nova propriedade for adicionada ou uma interface for alterada, a documentação em `docs/pt-br` e `docs/en` deve ser atualizada para refletir a mudança.
+3. **Documentação**: Sempre que uma nova propriedade for adicionada ou uma interface for alterada, a documentação em `docs/pt-br`, `docs/en` e `docs/ru` deve ser atualizada para refletir a mudança.
 
 ### Scripts
 
@@ -51,6 +54,7 @@ A documentação detalhada das tabelas e módulos pode ser acessada em:
 
 - 👉 [**Página Principal da Documentação em Português**](./docs/pt-br/config.md)
 - 👉 [**Main Documentation Page in English**](./docs/en/config.md)
+- 👉 [**Главная страница документации на русском**](./docs/ru/config.md)
 
 ## ⚠️ Disclaimer
 

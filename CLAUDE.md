@@ -24,5 +24,6 @@ Pre-commit (Husky + lint-staged) runs `eslint --fix` and `prettier --write` on s
 ## Conventions
 
 - The schemas follow the actual JSON, not the docs; the docs describe some fields that the JSON does not have yet (e.g. `allowed_unit_quanty` in the data vs `allowed_unit_occupation` in the docs).
-- Documentation is bilingual and must stay in sync: `docs/pt-br/` is the original, `docs/en/` mirrors it file for file. Update both when a property or interface changes. READMEs: `README.md` (English) and `README.pt-br.md`.
+- Documentation is trilingual and must stay in sync: `docs/pt-br/` is the original, `docs/en/` and `docs/ru/` mirror it file for file. Update all three when a property or interface changes. READMEs: `README.md` (English), `README.pt-br.md` and `README.ru.md`.
+- `initial_state.json` is a legacy draft whose format is **incompatible with the original game** (the original files were found only recently; the client is fed block-based `initialize` responses). See `docs/en/initial-state.md` before changing or relying on it.
 - TypeScript 6 does not auto-include `@types`; `tsconfig.json` sets `"types": ["node"]` explicitly.

@@ -22,6 +22,7 @@ The kingdom is the main part of the game, where the player can craft items, recr
 - [Unit Upgrades](./unit-upgrades.md)
 - [Building Upgrades](./building-upgrades.md)
 - [Land Chunks](./land-chunks.md)
+- [Initial State](./initial-state.md) (⚠️ incompatible with the original game format)
 
 #### 1.2 Combat
 
